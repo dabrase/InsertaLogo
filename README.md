@@ -1,16 +1,18 @@
 # Miguel Ángel García Villegas 
 
 # Proyecto InsertaLogo
-Proyecto de la asignatura de Infraestructuras Virtuales
-Repositorio para el proyecto de una infraestructura virtual para complementar el proyecto de la asignatura de Diseño de Aplicaciones para Internet.
+Proyecto de la asignatura de Infraestructuras Virtuales para complementar el proyecto de la asignatura de Diseño de Aplicaciones para Internet.
 
 #Descripción
 
 Consiste en realizar una aplicación web para insertar de forma muy rápida, el logo de nuestra empresa o autor a una fotografía. 
 
-
 #Más info y detalles
-Un usuario se registra en la aplicación, a través de usuario y contraseña, donde incorpora su logo o varios logos con los que habitualmente trabaja. El usuario se dispone a poner su logo en una foto, pues cargará la foto o fotos donde quieres añadir el logo, y seguidamente después deberá indicarle el logo a incorporar en la foto, la posición donde quiere situarlo y la resolución final, para la exportación de la foto, con el logo integrado.
+- [x]  Registro: Un usuario se registra en la aplicación, a través de usuario y contraseña.
+- [x]  Añadir Logos Vinculados a un Usuario en concreto: Una Vez registrado y logeado añade el logo o logos con los que habitualmente trabaja. 
+- [x]  Selección de Foto y/o Fotos: Se seleccionará la foto o fotos donde quieres añadir el logo desde su pc.
+- [x]  Indicar logo a insertar: Seguidamente de la selección de foto o fotos, deberá seleccionar el logo vinculado a su registro que desea incorporar en la foto, la posición donde quiere situarlo y la resolución de la foto. 
+- [x]  Exportación de foto final: Finalmente la foto se exportará con las características previamente seleccionadas con el logo incorporado. 
 
 #Trabajaremos:
 
