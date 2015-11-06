@@ -619,4 +619,43 @@ https://www.dropbox.com/home/IV?preview=Administraci%C3%B3n+Django.png
 Modificar Usuario
 https://www.dropbox.com/home/IV?preview=Usuario+a+modificar.png
 
-## Travis para integraciónn continua
+## Creación de un Makefile
+
+    #Miguel Angel Garcia Villegas
+
+    clean:
+    	- rm -rf *~*
+    	- find . -name '*.pyc' -exec rm {} \;
+    install:
+    	- python setup.py install
+    test:
+    	- python manage.py test
+    run:
+    	- python manage.py runserver
+    doc:
+    	- pycco *.py
+
+## Travis para integración continua
+
+Vamos a darnos de alta en Travis CI.-> https://travis-ci.org/
+
+Archivo  travis.yml
+
+    languaje: python
+    python:
+      - "2.7.6"
+    env:
+      - DJANGO_VERSION = 1.8.6
+    install:
+      - sudo apt-get install python-dev
+      - sudo pip install --upgrade pip
+      - sudo pip install -q Django
+      - sudo pip install -q wheel == 0.26.0
+    script:
+      - cd insertaLogo/insertaLogo
+      - sudo python setup.py install
+      - sudo python manage.py test
+
+
+Accedemos a la web de Travis y una vez que este sincronizado con nuestro repositorio en github accedemos a current.
+Todo Ok.
