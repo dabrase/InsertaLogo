@@ -27,7 +27,8 @@ Consiste en realizar una aplicación web para insertar de forma muy rápida, el 
 
 ##Hito 2: 
 
-Herramientas y Guía paso a paso de cómo hemos realizado a cabo el proyecto y las herramientas que hemos utilizado. 
+Herramientas y Guía paso a paso de cómo hemos realizado a cabo el proyecto y las herramientas que hemos utilizado.
+https://github.com/magvugr/InsertaLogo/blob/master/Gu%C3%ADa%20paso%20a%20paso%20Hito%202.md
 
 
 
