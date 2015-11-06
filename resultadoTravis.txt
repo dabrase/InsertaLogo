@@ -1,0 +1,191 @@
+Using worker: worker-linux-f25aadab-2.bb.travis-ci.org:travis-linux-9
+
+Build system information
+Build language: python
+Build image provisioning date and time
+Wed Feb  4 18:22:50 UTC 2015
+Operating System Details
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04 LTS
+Release:	12.04
+Codename:	precise
+Linux Version
+2.6.32-042stab090.5
+Cookbooks Version
+23bb455 https://github.com/travis-ci/travis-cookbooks/tree/23bb455
+GCC version
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+LLVM version
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Pre-installed Ruby versions
+ruby-1.9.3-p551
+Pre-installed Node.js versions
+v0.10.36
+Pre-installed Go versions
+1.4.1
+Redis version
+redis-server 2.8.19
+riak version
+2.0.2
+MongoDB version
+MongoDB 2.4.12
+CouchDB version
+couchdb 1.6.1
+Neo4j version
+1.9.4
+Cassandra version
+2.0.9
+RabbitMQ Version
+3.4.3
+ElasticSearch version
+1.4.0
+Installed Sphinx versions
+2.0.10
+2.1.9
+2.2.6
+Default Sphinx version
+2.2.6
+Installed Firefox version
+firefox 31.0esr
+PhantomJS version
+1.9.8
+ant -version
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+mvn -version
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-042stab090.5", arch: "amd64", family: "unix"
+
+$ git clone --depth=50 --branch=master https://github.com/magvugr/InsertaLogo.git magvugr/InsertaLogo
+Cloning into 'magvugr/InsertaLogo'...
+remote: Counting objects: 7207, done.
+remote: Compressing objects: 100% (6213/6213), done.
+remote: Total 7207 (delta 2025), reused 0 (delta 0), pack-reused 18
+Receiving objects: 100% (7207/7207), 11.67 MiB | 7.29 MiB/s, done.
+Resolving deltas: 100% (2028/2028), done.
+Checking connectivity... done.
+$ cd magvugr/InsertaLogo
+$ git checkout -qf 11303ecb6ec559df47b8c55cf085ca8107c7f345
+$ source ~/virtualenv/python2.7/bin/activate
+$ python --version
+Python 2.7.9
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+$ sudo apt-get install python-dev
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+python-dev is already the newest version.
+The following package was automatically installed and is no longer required:
+  libgeos-3.2.2
+Use 'apt-get autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 102 not upgraded.
+$ pip install -q Django==1.8.5
+You are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+$ pip install -q wheel==0.24.0
+You are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+$ pip install pycco
+You are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Collecting pycco
+  Downloading Pycco-0.3.0.tar.gz
+Collecting markdown (from pycco)
+  Downloading Markdown-2.6.3.tar.gz (301kB)
+    100% |################################| 303kB 897kB/s 
+Collecting pygments (from pycco)
+  Downloading Pygments-2.0.2-py2-none-any.whl (672kB)
+    100% |################################| 675kB 477kB/s 
+Collecting pystache (from pycco)
+  Downloading pystache-0.5.4.tar.gz (75kB)
+    100% |################################| 77kB 3.8MB/s 
+    pystache: using: version '12.0.5' of <module 'setuptools' from '/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/setuptools/__init__.pyc'>
+Collecting smartypants (from pycco)
+  Downloading smartypants-1.8.6-py2.py3-none-any.whl
+Installing collected packages: smartypants, pystache, pygments, markdown, pycco
+
+  Running setup.py install for pystache
+    pystache: using: version '12.0.5' of <module 'setuptools' from '/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/setuptools/__init__.pyc'>
+    Installing pystache script to /home/travis/virtualenv/python2.7.9/bin
+    Installing pystache-test script to /home/travis/virtualenv/python2.7.9/bin
+
+  Running setup.py install for markdown
+    changing mode of build/scripts-2.7/markdown_py from 664 to 775
+    Converting docs/release-2.5.txt -> build/docs/release-2.5.html
+    Converting docs/release-2.6.txt -> build/docs/release-2.6.html
+    Converting docs/release-2.2.1.txt -> build/docs/release-2.2.1.html
+    Converting docs/reference.txt -> build/docs/reference.html
+    Converting docs/cli.txt -> build/docs/cli.html
+    Converting docs/release-2.0.txt -> build/docs/release-2.0.html
+    Converting docs/release-2.1.0.txt -> build/docs/release-2.1.0.html
+    Converting docs/index.txt -> build/docs/index.html
+    Converting docs/release-2.1.1.txt -> build/docs/release-2.1.1.html
+    Converting docs/release-2.0.2.txt -> build/docs/release-2.0.2.html
+    Converting docs/release-2.2.0.txt -> build/docs/release-2.2.0.html
+    Converting docs/release-2.0.1.txt -> build/docs/release-2.0.1.html
+    Converting docs/change_log.txt -> build/docs/change_log.html
+    Converting docs/release-2.4.txt -> build/docs/release-2.4.html
+    Converting docs/release-2.3.txt -> build/docs/release-2.3.html
+    Converting docs/test_suite.txt -> build/docs/test_suite.html
+    Converting docs/authors.txt -> build/docs/authors.html
+    Converting docs/install.txt -> build/docs/install.html
+    Converting docs/siteindex.txt -> build/docs/siteindex.html
+    Converting docs/extensions/abbreviations.txt -> build/docs/extensions/abbreviations.html
+    Converting docs/extensions/smart_strong.txt -> build/docs/extensions/smart_strong.html
+    Converting docs/extensions/definition_lists.txt -> build/docs/extensions/definition_lists.html
+    Converting docs/extensions/code_hilite.txt -> build/docs/extensions/code_hilite.html
+    Converting docs/extensions/index.txt -> build/docs/extensions/index.html
+    Converting docs/extensions/attr_list.txt -> build/docs/extensions/attr_list.html
+    Converting docs/extensions/api.txt -> build/docs/extensions/api.html
+    Converting docs/extensions/smarty.txt -> build/docs/extensions/smarty.html
+    Converting docs/extensions/footnotes.txt -> build/docs/extensions/footnotes.html
+    Converting docs/extensions/header_id.txt -> build/docs/extensions/header_id.html
+    Converting docs/extensions/sane_lists.txt -> build/docs/extensions/sane_lists.html
+    Converting docs/extensions/extra.txt -> build/docs/extensions/extra.html
+    Converting docs/extensions/tables.txt -> build/docs/extensions/tables.html
+    Converting docs/extensions/wikilinks.txt -> build/docs/extensions/wikilinks.html
+    Converting docs/extensions/nl2br.txt -> build/docs/extensions/nl2br.html
+    Converting docs/extensions/fenced_code_blocks.txt -> build/docs/extensions/fenced_code_blocks.html
+    Converting docs/extensions/toc.txt -> build/docs/extensions/toc.html
+    Converting docs/extensions/admonition.txt -> build/docs/extensions/admonition.html
+    Converting docs/extensions/meta_data.txt -> build/docs/extensions/meta_data.html
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/markdown_py to 775
+  Running setup.py install for pycco
+    Installing pycco script to /home/travis/virtualenv/python2.7.9/bin
+Successfully installed markdown-2.6.3 pycco-0.3.0 pygments-2.0.2 pystache-0.5.4 smartypants-1.8.6
+$ pycco insertaLogo/insertaLogo/*.py
+pycco = insertaLogo/insertaLogo/manage.py -> docs/manage.html
+pycco = insertaLogo/insertaLogo/setup.py -> docs/setup.html
+
+The command "pycco insertaLogo/insertaLogo/*.py" exited with 0.
+$ pycco insertaLogo/insertaLogo/appInsertaLogo/*.py
+pycco = insertaLogo/insertaLogo/appInsertaLogo/__init__.py -> docs/__init__.html
+pycco = insertaLogo/insertaLogo/appInsertaLogo/admin.py -> docs/admin.html
+pycco = insertaLogo/insertaLogo/appInsertaLogo/forms.py -> docs/forms.html
+pycco = insertaLogo/insertaLogo/appInsertaLogo/models.py -> docs/models.html
+pycco = insertaLogo/insertaLogo/appInsertaLogo/tests.py -> docs/tests.html
+pycco = insertaLogo/insertaLogo/appInsertaLogo/views.py -> docs/views.html
+
+The command "pycco insertaLogo/insertaLogo/appInsertaLogo/*.py" exited with 0.
+$ python insertaLogo/insertaLogo/manage.py test insertaLogo
+Creating test database for alias 'default'...
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+Destroying test database for alias 'default'...
+
+The command "python insertaLogo/insertaLogo/manage.py test insertaLogo" exited with 0.
+
+Done. Your build exited with 0.
