@@ -1,0 +1,11 @@
+setup.py
+Inserta_Logo.egg-info/PKG-INFO
+Inserta_Logo.egg-info/SOURCES.txt
+Inserta_Logo.egg-info/dependency_links.txt
+Inserta_Logo.egg-info/not-zip-safe
+Inserta_Logo.egg-info/requires.txt
+Inserta_Logo.egg-info/top_level.txt
+insertaLogo/__init__.py
+insertaLogo/settings.py
+insertaLogo/urls.py
+insertaLogo/wsgi.py
