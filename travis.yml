@@ -1,0 +1,14 @@
+languaje: python
+python:
+  - "2.7.6"
+env:
+  - DJANGO_VERSION = 1.8.6
+install:
+  - sudo apt-get install python-dev
+  - sudo pip install --upgrade pip
+  - sudo pip install -q Django
+  - sudo pip install -q wheel == 0.26.0 
+script:
+  - cd insertaLogo/insertaLogo
+  - sudo python setup.py install
+  - sudo python manage.py test
