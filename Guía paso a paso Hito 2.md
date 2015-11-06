@@ -639,7 +639,7 @@ https://www.dropbox.com/home/IV?preview=Usuario+a+modificar.png
 
 Vamos a darnos de alta en Travis CI.-> https://travis-ci.org/
 
-Archivo  travis.yml
+## Archivo  travis.yml
 
     languaje: python
     python:
@@ -659,3 +659,9 @@ Archivo  travis.yml
 
 Accedemos a la web de Travis y una vez que este sincronizado con nuestro repositorio en github accedemos a current.
 Todo Ok.
+
+También lo he realizado con **Circleci**, como tenía que realizar un cambio he aprovechado para ver otra herramienta de Integración Continua.
+
+Aquí os pongo imagen de la muestra y solución.
+
+https://www.dropbox.com/home/IV?preview=circleci.png
