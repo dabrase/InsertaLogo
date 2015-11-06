@@ -25,4 +25,8 @@ Consiste en realizar una aplicación web para insertar de forma muy rápida, el 
 
 - [x]  Framework Django. 
 
-hola
+Hito 2: 
+
+Herramientas y Guía paso a paso de cómo hemos realizado a cabo el proyecto y las herramientas que hemos utilizado. 
+
+
