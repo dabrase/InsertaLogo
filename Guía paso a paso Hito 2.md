@@ -608,4 +608,15 @@ Resultados:
     OK
     Destroying test database for alias 'default'...
 
+## Imágenes de muestra
+
+Acceso de usuario Admin
+https://www.dropbox.com/home/IV?preview=Acceso+para+Admin.png
+
+Administración Django
+https://www.dropbox.com/home/IV?preview=Administraci%C3%B3n+Django.png
+
+Modificar Usuario
+https://www.dropbox.com/home/IV?preview=Usuario+a+modificar.png
+
 ## Travis para integraciónn continua
