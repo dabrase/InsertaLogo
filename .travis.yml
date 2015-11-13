@@ -11,7 +11,7 @@ install:
 script:
  - pycco insertaLogo/insertaLogo/*.py
  - pycco insertaLogo/insertaLogo/appInsertaLogo/*.py
- - python insertaLogo/insertaLogo/manage.py test insertaLogo
+ - make test
 
 branches:
   - only:
