@@ -6,7 +6,9 @@ clean:
 install:
 	- python insertaLogo/insertaLogo/setup.py install
 test:
-	- python insertaLogo/insertaLogo/manage.py test
+	- python insertaLogo/insertaLogo/manage.py test insertaLogo/insertaLogo/appInsertaLogo
+ 
+
 run:
 	- python insertaLogo/insertaLogo/manage.py runserver
 doc:
