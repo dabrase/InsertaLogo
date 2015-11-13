@@ -31,17 +31,16 @@ Consiste en la que usuarios pueden poner su sello o logo, en sus fotos de una ma
 
 ## Herramientas de construcción
 
-- [x]  VirtualenV
-- [x]  Python
-- [x]  Framework Django
+- [x]  Manage.py
+- [x]  Makefile
+
+## Automatización, **Make**
+He realizado un archivo [make](https://github.com/magvugr/InsertaLogo/blob/master/makefile) para automatizar el proceso.
 
 ## Integración Continua
 - [x] [Travis](https://travis-ci.org/) permite testear el código del proyecto. Para llevar a cabo esto hay que adjuntar en el directorio raíz de nuestro proyecto el fichero **.travis.yml**. Mi archivo [.travis.yml](https://github.com/magvugr/InsertaLogo/blob/master/.travis.yml)
 
 Desde la web Travis logueándose con GitHub automáticamente se realizarán comprobaciones con los test creados previamente, cada vez que se realice un *push*
-
-## Automatización, **Make**
-He realizado un archivo [make](https://github.com/magvugr/InsertaLogo/blob/master/makefile) para automatizar el proceso.
 
 ## Documentación, **Pycco**
 Las directivas para documentar el código del proyecto, están contempladas en el [make](https://github.com/magvugr/InsertaLogo/blob/master/makefile)
