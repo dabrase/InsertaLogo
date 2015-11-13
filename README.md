@@ -51,39 +51,39 @@ Hemos realizado varios Test para verificar el funcionamiento del proyecto. Para 
 
 - [x] test_usuarios, éste test crea un usuario.
 
-		def test_usuarios(self):
-		user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
-		user.save()
-		self.assertEqual(user.nombre,'nombre')
-		print("Se ha creado usuario, Test = OK")
+			def test_usuarios(self):
+			user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
+			user.save()
+			self.assertEqual(user.nombre,'nombre')
+			print("Se ha creado usuario, Test = OK")
 
 - [x] test_cambiar_nombre, éste test realiza un cambio de nombre.
 
-	def test_cambiar_nombre(self):
-		user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
-		user.save()
-		user.nombre='CambioNombre'
-		user.save()
-		self.assertEqual(user.nombre,'CambioNombre')
-		print("Se ha realizado el cambio de nombre, Test = OK")
+		def test_cambiar_nombre(self):
+			user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
+			user.save()
+			user.nombre='CambioNombre'
+			user.save()
+			self.assertEqual(user.nombre,'CambioNombre')
+			print("Se ha realizado el cambio de nombre, Test = OK")
 
 - [x] test_cambiar_email, éste test realiza un cambio de email.
 
-	def test_cambiar_email(self):
-		user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
-		user.save()
-		user.email='CambioEmail'
-		user.save()
-		self.assertEqual(user.email,'CambioEmail')
-		print("Se ha realizado el cambio de email, Test = OK")
+		def test_cambiar_email(self):
+			user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
+			user.save()
+			user.email='CambioEmail'
+			user.save()
+			self.assertEqual(user.email,'CambioEmail')
+			print("Se ha realizado el cambio de email, Test = OK")
 
 - [x] test_form_usuarios, éste test valida un formulario usuario.
 
-	def test_form_usuarios(self):
-		data_form = {'nombre' : 'nombre','apellidos' : 'apellidos','user' : 'user', 'password': 'pass', 'email':'email'}
-		form = crea_usuario(data = data_form)
-		self.assertTrue(form.is_valid())
-		print("Formulario Usuario, Test = OK")
+		def test_form_usuarios(self):
+			data_form = {'nombre' : 'nombre','apellidos' : 'apellidos','user' : 'user', 'password': 'pass', 'email':'email'}
+			form = crea_usuario(data = data_form)
+			self.assertTrue(form.is_valid())
+			print("Formulario Usuario, Test = OK")
 
 
 He realizado una guía *paso a paso* para llevar a cabo el *hito 2* del proyecto **Inserta Logo**
