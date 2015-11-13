@@ -1,7 +1,8 @@
-# Miguel Ángel García Villegas 
-
 # Proyecto InsertaLogo
+## Miguel Ángel García Villegas 
 Proyecto de la asignatura de Infraestructuras Virtuales para complementar el proyecto de la asignatura de Diseño de Aplicaciones para Internet.
+	**Etiqueta Travis**
+	[![Build Status](https://travis-ci.org/magvugr/InsertaLogo.svg?branch=master)](https://travis-ci.org/magvugr/InsertaLogo)
 
 ## Descripción
 
@@ -29,6 +30,7 @@ Consiste en realizar una aplicación web para insertar de forma muy rápida, el 
 
 Herramientas y Guía paso a paso de cómo hemos realizado a cabo el proyecto y las herramientas que hemos utilizado.
 https://github.com/magvugr/InsertaLogo/blob/master/Gu%C3%ADa%20paso%20a%20paso%20Hito%202.md
+
 
 
 
