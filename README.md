@@ -124,3 +124,7 @@ Hemos realizado varios Test para verificar el funcionamiento del proyecto. Para 
 			form = crea_usuario(data = data_form)
 			self.assertTrue(form.is_valid())
 			print("Formulario Usuario, Test = OK")
+
+El resultado de nuestro proyecto en Travis es el siguiente:
+
+![Travis](https://www.dropbox.com/s/qrmflob8zsyq1e3/travis.png?dl=1)
