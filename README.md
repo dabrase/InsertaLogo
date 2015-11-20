@@ -35,7 +35,7 @@ Consiste en la que usuarios pueden poner su sello o logo, en sus fotos de una ma
 - [x]  Makefile
 
 ## Automatización, **Make**
-He realizado un archivo [make](https://github.com/magvugr/InsertaLogo/blob/master/makefile) para automatizar el proceso.
+He realizado un archivo [make](https://github.com/magvugr/InsertaLogo/blob/master/Makefile) para automatizar el proceso.
 
 El código de mi Makefile es el siguiente:
 
@@ -45,17 +45,16 @@ El código de mi Makefile es el siguiente:
 			- rm -rf *~*
 			- find . -name '*.pyc' -exec rm {} \;
 		install:
-			- python insertaLogo/insertaLogo/setup.py install
+			- python insertaLogo/setup.py install
 		test:
-			- python insertaLogo/insertaLogo/manage.py test insertaLogo/insertaLogo/appInsertaLogo
+			- python insertaLogo/manage.py test insertaLogo/insertaLogo/appInsertaLogo
 
 
 		run:
-			- python insertaLogo/insertaLogo/manage.py runserver
+			- python insertaLogo/manage.py runserver
 		doc:
 			- pycco *.py
 			- pycco insertaLogo/*.py
-			- pycco insertaLogo/insertaLogo/*.py
 
 ## Integración Continua
 - [x] [Travis](https://travis-ci.org/) permite testear el código del proyecto. Para llevar a cabo esto hay que adjuntar en el directorio raíz de nuestro proyecto el fichero **.travis.yml**. Mi archivo [.travis.yml](https://github.com/magvugr/InsertaLogo/blob/master/.travis.yml)
@@ -64,22 +63,22 @@ El código utilizado para el fichero .travis.yml es el siguiente:
 
 		language: python
 		python:
-		 - "2.7"
+		- "2.7"
 		# command to install dependencies
 		install:
-		 - sudo apt-get install python-dev
-		 - pip install -q Django==1.8.5
-		 - pip install -q wheel==0.24.0
-		 - pip install pycco
+		- sudo apt-get install python-dev
+		- pip install -q Django==1.8.5
+		- pip install -q wheel==0.24.0
+		- pip install pycco
 		# command to run tests
 		script:
-		 - pycco insertaLogo/insertaLogo/*.py
-		 - pycco insertaLogo/insertaLogo/appInsertaLogo/*.py
-		 - make -f Makefile test
+		- pycco insertaLogo/*.py
+		- pycco insertaLogo/appInsertaLogo/*.py
+		- make -f Makefile test
 
 		branches:
-		  - only:
-		    - master
+		- only:
+		- master
 
 Desde la web Travis logueándose con GitHub automáticamente se realizarán comprobaciones con los test creados previamente, cada vez que se realice un *push*
 
