@@ -6,6 +6,8 @@ Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de 
 **Etiqueta Travis**
 	[![Build Status](https://travis-ci.org/magvugr/InsertaLogo.svg?branch=master)](https://travis-ci.org/magvugr/InsertaLogo)
 
+**Etiqueta Snap-ci** [![Build Status](https://snap-ci.com/magvugr/InsertaLogo/branch/master/build_image)](https://snap-ci.com/magvugr/InsertaLogo/branch/master)
+
 ## Descripción
 
 Consiste en la que usuarios pueden poner su sello o logo, en sus fotos de una manera rápida y sencilla.
