@@ -1,0 +1,16 @@
+*.lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.[oa]
+*~
+*.#
+*.pyc
+build
+dist
+docs
+Inserta_Logo.egg-info
