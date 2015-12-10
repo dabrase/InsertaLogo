@@ -4,7 +4,10 @@
 Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de Aplicaciones para Internet).
 
 **Etiqueta Travis**
-	[![Build Status](https://travis-ci.org/magvugr/InsertaLogo.svg?branch=master)](https://travis-ci.org/magvugr/InsertaLogo)
+[![Build Status](https://travis-ci.org/magvugr/InsertaLogo.svg?branch=master)](https://travis-ci.org/magvugr/InsertaLogo)
+
+**Etiqueta Shippable**
+[![Shippable](https://img.shields.io/shippable/54d119db5ab6cc13528ab183.svg)](https://app.shippable.com/projects/563cd39c1895ca447422c9bd)
 
 **Etiqueta Snap-ci** [![Build Status](https://snap-ci.com/magvugr/InsertaLogo/branch/master/build_image)](https://snap-ci.com/magvugr/InsertaLogo/branch/master)
 
@@ -28,8 +31,6 @@ Consiste en la que usuarios pueden poner su sello o logo, en sus fotos de una ma
 
 - [x]  Framework Django.
 - [x]  Usuarios y Logos, Base de Datos Gestionada con MySqL
-
-# Hito 2
 
 ## Herramientas de construcción
 
@@ -58,7 +59,56 @@ El código de mi Makefile es el siguiente:
 			- pycco *.py
 			- pycco insertaLogo/*.py
 
+Algunas de las diferentes opciones del Makefile (que se irán añadiendo más):
+	- Limpieza (make clean)
+	- Realizar Tests (make test)
+	- Ejecutar servidor (make run)
+
+## Test, Sistema de Pruebas.
+
+Hemos realizado varios Test para verificar el funcionamiento del proyecto. Para ejecutarlos lo hacemos llamando a ```make test```
+
+- [x] test_usuarios, éste test crea un usuario.
+
+				def test_usuarios(self):
+				user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
+				user.save()
+				self.assertEqual(user.nombre,'nombre')
+				print("Se ha creado usuario, Test = OK")
+
+- [x] test_cambiar_nombre, éste test realiza un cambio de nombre.
+
+			def test_cambiar_nombre(self):
+				user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
+				user.save()
+				user.nombre='CambioNombre'
+				user.save()
+				self.assertEqual(user.nombre,'CambioNombre')
+				print("Se ha realizado el cambio de nombre, Test = OK")
+
+- [x] test_cambiar_email, éste test realiza un cambio de email.
+
+			def test_cambiar_email(self):
+				user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
+				user.save()
+				user.email='CambioEmail'
+				user.save()
+				self.assertEqual(user.email,'CambioEmail')
+				print("Se ha realizado el cambio de email, Test = OK")
+
+- [x] test_form_usuarios, éste test valida un formulario usuario.
+
+			def test_form_usuarios(self):
+				data_form = {'nombre' : 'nombre','apellidos' : 'apellidos','user' : 'user', 'password': 'pass', 'email':'email'}
+				form = crea_usuario(data = data_form)
+				self.assertTrue(form.is_valid())
+				print("Formulario Usuario, Test = OK")
+
+
 ## Integración Continua
+
+Sistema de integración continua comprueba de forma continua que cada cambio realizado al repositorio, siga funcionando correctamente.
+
 - [x] [Travis](https://travis-ci.org/) permite testear el código del proyecto. Para llevar a cabo esto hay que adjuntar en el directorio raíz de nuestro proyecto el fichero **.travis.yml**. Mi archivo [.travis.yml](https://github.com/magvugr/InsertaLogo/blob/master/.travis.yml)
 
 El código utilizado para el fichero .travis.yml es el siguiente:
@@ -82,51 +132,25 @@ El código utilizado para el fichero .travis.yml es el siguiente:
 		- only:
 		- master
 
-Desde la web Travis logueándose con GitHub automáticamente se realizarán comprobaciones con los test creados previamente, cada vez que se realice un *push*
 
-## Documentación, **Pycco**
-Las directivas para documentar el código del proyecto, están contempladas en el [make](https://github.com/magvugr/InsertaLogo/blob/master/makefile)
+- [x] [Shippable](https://app.shippable.com/) permite testear el código del proyecto. Para llevar a cabo esto hay que adjuntar en el directorio raíz de nuestro proyecto el fichero **shippable.yml**. Mi archivo [shippable.yml](https://github.com/magvugr/InsertaLogo/blob/master/shippable.yml)
 
-## Test
-
-Hemos realizado varios Test para verificar el funcionamiento del proyecto. Para ejecutarlos lo hacemos llamando a ```make test```
-
-- [x] test_usuarios, éste test crea un usuario.
-
-			def test_usuarios(self):
-			user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
-			user.save()
-			self.assertEqual(user.nombre,'nombre')
-			print("Se ha creado usuario, Test = OK")
-
-- [x] test_cambiar_nombre, éste test realiza un cambio de nombre.
-
-		def test_cambiar_nombre(self):
-			user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
-			user.save()
-			user.nombre='CambioNombre'
-			user.save()
-			self.assertEqual(user.nombre,'CambioNombre')
-			print("Se ha realizado el cambio de nombre, Test = OK")
-
-- [x] test_cambiar_email, éste test realiza un cambio de email.
-
-		def test_cambiar_email(self):
-			user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
-			user.save()
-			user.email='CambioEmail'
-			user.save()
-			self.assertEqual(user.email,'CambioEmail')
-			print("Se ha realizado el cambio de email, Test = OK")
-
-- [x] test_form_usuarios, éste test valida un formulario usuario.
-
-		def test_form_usuarios(self):
-			data_form = {'nombre' : 'nombre','apellidos' : 'apellidos','user' : 'user', 'password': 'pass', 'email':'email'}
-			form = crea_usuario(data = data_form)
-			self.assertTrue(form.is_valid())
-			print("Formulario Usuario, Test = OK")
+Desde la web Travis, Shippable o Snap-ci logueándose con GitHub automáticamente se realizarán comprobaciones con los test creados previamente, cada vez que se realice un *push*
 
 El resultado de nuestro proyecto en Travis es el siguiente:
 
 ![Travis](https://www.dropbox.com/s/qrmflob8zsyq1e3/travis.png?dl=1)
+
+## Documentación, **Pycco**
+Las directivas para documentar el código del proyecto, están contempladas en el [make](https://github.com/magvugr/InsertaLogo/blob/master/makefile)
+
+## Despliegue en Heroku (PaaS):
+
+Esta es la aplicación ya desplegada en Heroku: [Aplicación InsertaLogo en Heroku]()
+
+Para llevar a cabo el despliegue en Heroku, hay que añadir el fichero ***Procfile*** y el fichero ***requirements.txt***
+
+Mi fichero [Procfile](https://github.com/magvugr/InsertaLogo/blob/master/Procfile) que sirve para ejecutar el comando en el servidor de heroku. Éste archivo no debe tener extensión y debe estar colocado en el directorio raíz de su aplicación.
+Para que nuestra aplicación se ejecute debemos de definir nuestros [dynos](https://devcenter.heroku.com/articles/dynos). Un dyno no es más que un contenedor que ejecuta el comando que le especificamos.
+
+Mi archivo [requirements.txt](https://github.com/magvugr/InsertaLogo/blob/master/requirements.txt) que sirve para que Heroku reconozca una aplicación Python y para que conozca sus dependencias. Éste archivo tiene que terner formato txt y debe estar colocado en el directorio raíz del repositorio. Éste fichero se puede generar ejecutando en el terminal ***pip freeze > requirements.txt***
