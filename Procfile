@@ -1,1 +1,1 @@
-web: python insertaLogo/manage.py
+web: insertaLogo/appInsertaLogo.wsgi --log-file -
