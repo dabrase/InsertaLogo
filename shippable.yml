@@ -1,0 +1,18 @@
+language: python
+python:
+ - "2.7"
+# command to install dependencies
+install:
+ - sudo apt-get install python-dev
+ - pip install -q Django==1.8.5
+ - pip install -q wheel==0.24.0
+ - pip install pycco
+# command to run tests
+script:
+ - pycco insertaLogo/*.py
+ - pycco insertaLogo/appInsertaLogo/*.py
+ - make -f Makefile test
+
+branches:
+  - only:
+    - master
