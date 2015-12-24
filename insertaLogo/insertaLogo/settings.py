@@ -161,6 +161,11 @@ TEMPLATES = [
     },
 ]
 
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 WSGI_APPLICATION = 'insertaLogo.wsgi.application'
 
 
