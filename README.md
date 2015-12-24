@@ -11,6 +11,8 @@ Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de 
 
 **Etiqueta Snap-ci** [![Build Status](https://snap-ci.com/magvugr/InsertaLogo/branch/master/build_image)](https://snap-ci.com/magvugr/InsertaLogo/branch/master)
 
+[![Heroku](https://www.herokucdn.com/deploy/button.png)]()
+
 ## Descripción
 
 Consiste en la que usuarios pueden poner su sello o logo, en sus fotos de una manera rápida y sencilla.
@@ -60,9 +62,12 @@ El código de mi Makefile es el siguiente:
 			- pycco insertaLogo/*.py
 
 Algunas de las diferentes opciones del Makefile (que se irán añadiendo más):
-	- Limpieza (make clean)
-	- Realizar Tests (make test)
-	- Ejecutar servidor (make run)
+
+- Limpieza (make clean)
+
+- Realizar Tests (make test)
+
+- Ejecutar servidor (make run)
 
 ## Test, Sistema de Pruebas.
 
@@ -150,7 +155,7 @@ Esta es la aplicación ya desplegada en Heroku: [Aplicación InsertaLogo en Hero
 
 Para llevar a cabo el despliegue en Heroku, hay que añadir el fichero ***Procfile*** y el fichero ***requirements.txt***
 
-Mi fichero [Procfile](https://github.com/magvugr/InsertaLogo/blob/master/Procfile) que sirve para ejecutar el comando en el servidor de heroku. Éste archivo no debe tener extensión y debe estar colocado en el directorio raíz de su aplicación.
+- Mi fichero [Procfile](https://github.com/magvugr/InsertaLogo/blob/master/Procfile) que sirve para ejecutar el comando en el servidor de heroku. Éste archivo no debe tener extensión y debe estar colocado en el directorio raíz de su aplicación.
 Para que nuestra aplicación se ejecute debemos de definir nuestros [dynos](https://devcenter.heroku.com/articles/dynos). Un dyno no es más que un contenedor que ejecuta el comando que le especificamos.
 
-Mi archivo [requirements.txt](https://github.com/magvugr/InsertaLogo/blob/master/requirements.txt) que sirve para que Heroku reconozca una aplicación Python y para que conozca sus dependencias. Éste archivo tiene que terner formato txt y debe estar colocado en el directorio raíz del repositorio. Éste fichero se puede generar ejecutando en el terminal ***pip freeze > requirements.txt***
+- Mi archivo [requirements.txt](https://github.com/magvugr/InsertaLogo/blob/master/requirements.txt) que sirve para que Heroku reconozca una aplicación Python y para que conozca sus dependencias. Éste archivo tiene que terner formato txt y debe estar colocado en el directorio raíz del repositorio. Éste fichero se puede generar ejecutando en el terminal ***pip freeze > requirements.txt***
