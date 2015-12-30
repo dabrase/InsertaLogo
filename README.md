@@ -47,19 +47,28 @@ El código de mi Makefile es el siguiente:
 		#Miguel Angel Garcia Villegas
 
 		clean:
-			- rm -rf *~*
-			- find . -name '*.pyc' -exec rm {} \;
+		- rm -rf *~*
+		- find . -name '*.pyc' -exec rm {} \;
 		install:
-			- python insertaLogo/setup.py install
+		- python setup.py install
 		test:
-			- python insertaLogo/manage.py test insertaLogo/insertaLogo/appInsertaLogo
-
+		- python manage.py test
 
 		run:
-			- python insertaLogo/manage.py runserver
+		- python manage.py runserver
 		doc:
-			- pycco *.py
-			- pycco insertaLogo/*.py
+		- pycco *.py
+
+		heroku:
+		- wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh   
+		- heroku login
+		- heroku create
+		- git add .
+		- git commit -m "Subir a Heroku"
+		- git push heroku master
+		- heroku ps:scale web=1
+		- heroku open
+
 
 Algunas de las diferentes opciones del Makefile (que se irán añadiendo más):
 
@@ -73,46 +82,45 @@ Algunas de las diferentes opciones del Makefile (que se irán añadiendo más):
 
 Hemos realizado varios Test para verificar el funcionamiento del proyecto. Para ejecutarlos lo hacemos llamando a ```make test```
 
-- [x] test_usuarios, éste test crea un usuario.
+- [x] test_registros, éste test crea un registro.
 
-				def test_usuarios(self):
-				user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
-				user.save()
-				self.assertEqual(user.nombre,'nombre')
-				print("Se ha creado usuario, Test = OK")
+		def test_registros(self):
+		reg = Registro(email = 'email', nombre = 'nombre',apellidos = 'apellidos')
+		reg.save()
+		self.assertEqual(reg.nombre,'nombre')
+		print("Se ha creado usuario, Test = OK")
 
 - [x] test_cambiar_nombre, éste test realiza un cambio de nombre.
 
-			def test_cambiar_nombre(self):
-				user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
-				user.save()
-				user.nombre='CambioNombre'
-				user.save()
-				self.assertEqual(user.nombre,'CambioNombre')
-				print("Se ha realizado el cambio de nombre, Test = OK")
+		def test_cambiar_nombre(self):
+		reg = Registro(email = 'email', nombre = 'nombre',apellidos = 'apellidos')
+		reg.save()
+		reg.nombre='CambioNombre'
+		reg.save()
+		self.assertEqual(reg.nombre,'CambioNombre')
+		print("Se ha realizado el cambio de nombre, Test = OK")
 
 - [x] test_cambiar_email, éste test realiza un cambio de email.
 
-			def test_cambiar_email(self):
-				user = Usuario(nombre = 'nombre',apellidos = 'apellidos',user = 'user',password = 'pass', email = 'email')
-				user.save()
-				user.email='CambioEmail'
-				user.save()
-				self.assertEqual(user.email,'CambioEmail')
-				print("Se ha realizado el cambio de email, Test = OK")
-
-- [x] test_form_usuarios, éste test valida un formulario usuario.
-
-			def test_form_usuarios(self):
-				data_form = {'nombre' : 'nombre','apellidos' : 'apellidos','user' : 'user', 'password': 'pass', 'email':'email'}
-				form = crea_usuario(data = data_form)
-				self.assertTrue(form.is_valid())
-				print("Formulario Usuario, Test = OK")
-
+		def test_cambiar_email(self):
+		reg = Registro(email = 'email', nombre = 'nombre',apellidos = 'apellidos')
+		reg.save()
+		reg.email='CambioEmail'
+		reg.save()
+		self.assertEqual(reg.email,'CambioEmail')
+		print("Se ha realizado el cambio de email, Test = OK")
 
 ## Integración Continua
 
 Sistema de integración continua comprueba de forma continua que cada cambio realizado al repositorio, siga funcionando correctamente.
+
+**Etiqueta Travis**
+[![Build Status](https://travis-ci.org/magvugr/InsertaLogo.svg?branch=master)](https://travis-ci.org/magvugr/InsertaLogo)
+
+**Etiqueta Shippable**
+[![Shippable](https://img.shields.io/shippable/54d119db5ab6cc13528ab183.svg)](https://app.shippable.com/projects/563cd39c1895ca447422c9bd)
+
+**Etiqueta Snap-ci** [![Build Status](https://snap-ci.com/magvugr/InsertaLogo/branch/master/build_image)](https://snap-ci.com/magvugr/InsertaLogo/branch/master)
 
 - [x] [Travis](https://travis-ci.org/) permite testear el código del proyecto. Para llevar a cabo esto hay que adjuntar en el directorio raíz de nuestro proyecto el fichero **.travis.yml**. Mi archivo [.travis.yml](https://github.com/magvugr/InsertaLogo/blob/master/.travis.yml)
 
@@ -120,22 +128,20 @@ El código utilizado para el fichero .travis.yml es el siguiente:
 
 		language: python
 		python:
-		- "2.7"
+		 - "2.7"
 		# command to install dependencies
 		install:
-		- sudo apt-get install python-dev
-		- pip install -q Django==1.8.5
-		- pip install -q wheel==0.24.0
-		- pip install pycco
+		 - sudo apt-get install python-dev
+		 - pip install -q Django==1.8
+		 - pip install -q wheel==0.24.0
+		 - pip install pycco
 		# command to run tests
 		script:
-		- pycco insertaLogo/*.py
-		- pycco insertaLogo/appInsertaLogo/*.py
-		- make -f Makefile test
+		 - make -f Makefile test
 
 		branches:
-		- only:
-		- master
+		  - only:
+		    - master
 
 
 - [x] [Shippable](https://app.shippable.com/) permite testear el código del proyecto. Para llevar a cabo esto hay que adjuntar en el directorio raíz de nuestro proyecto el fichero **shippable.yml**. Mi archivo [shippable.yml](https://github.com/magvugr/InsertaLogo/blob/master/shippable.yml)
@@ -147,7 +153,7 @@ El resultado de nuestro proyecto en Travis es el siguiente:
 ![Travis](https://www.dropbox.com/s/qrmflob8zsyq1e3/travis.png?dl=1)
 
 ## Documentación, **Pycco**
-Las directivas para documentar el código del proyecto, están contempladas en el [make](https://github.com/magvugr/InsertaLogo/blob/master/makefile)
+Las directivas para documentar el código del proyecto, están contempladas en el [make](https://github.com/magvugr/InsertaLogo/blob/master/Makefile)
 
 ## Despliegue en Heroku (PaaS):
 
