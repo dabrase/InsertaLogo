@@ -9,7 +9,6 @@ install:
  - pip install pycco
 # command to run tests
 script:
- - pycco InsertaLogo/*.py
  - make -f Makefile test
 
 branches:
