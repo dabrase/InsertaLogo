@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block head_title %}Bienvenido | {{ block.super }} {% endblock %}
+
+{% block jumbotron %}
+{{ block.super }}
+{% endblock %}
+
+{% block jumbotron_content %}
+<h1>Inserta Logo</h1>
+<p>Consiste en la que usuarios pueden poner su sello o logo, en sus fotos de una manera rápida y sencilla.</p>
+<p>Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de Aplicaciones para Internet).</p>
+<p>
+	<a class="btn btn-lg btn-primary" href="https://github.com/magvugr/InsertaLogo" role="button">ReadMe GitHub &raquo;</a>
+</p>
+
+{% endblock %}
+
+{% block content %}
+
+<h1> {{ template_title }} </h1>
+
+{{ user }}
+
+{{ request.user }}
+
+{{ a }}
+
+<form method="POST" action="">{% csrf_token %}
+{{ form.as_p }}
+
+<input type='submit' value='Registrate'>
+
+<!-- <input type="text">
+
+<input> -->
+</form>
+{% endblock %}
