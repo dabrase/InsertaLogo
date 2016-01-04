@@ -2,6 +2,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render
 from .forms import RegistroForm, ContactoForm
+from .models import Registro
 
 
 # Create your views here.
@@ -40,6 +41,14 @@ def home(request):
 			"template_title": "Gracias"
 		}
 
+	if request.user.is_authenticated() and request.user.is_staff:
+		queryset = Registro.objects.all().order_by('-fecha_registro')
+		contexto = {
+			"queryset": queryset
+		}
+
+	return render(request, "home.html",contexto)
+
 
 	'''
 	if form.is_valid():
@@ -75,10 +84,11 @@ def home(request):
 		contexto = {
 			"template_title": "Gracias"
 		}
-	'''
+	
+
 
 	return render(request, "home.html",contexto)
-
+'''
 
 def contacto(request):
 	titulo = "Contacta con nosotros"

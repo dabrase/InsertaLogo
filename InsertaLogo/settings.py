@@ -24,6 +24,7 @@ SECRET_KEY = 'tlqw9$whq!_768i#s59zhw5ama6olo@k9ub#v2tlk49p-l84o)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ADMIN = (("miguelangel", "magvugr@gmail.com"),)
 
 ALLOWED_HOSTS = []
 
@@ -95,6 +96,19 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.InsertaLogo'),
     }
 }
+
+'''
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mysql',
+        'USER': 'root',
+        'PASSWORD': '9i8u7y',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}'''
 
 
 # Internationalization

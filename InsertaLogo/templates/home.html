@@ -24,6 +24,7 @@ en custom.css y lo incluímos en el archivo
       
 
 {% block jumbotron %}
+{% if not request.user.is_authenticated %}
 <div class="jumbotron">
 <div class="container">
 	<div class="row">
@@ -48,10 +49,28 @@ en custom.css y lo incluímos en el archivo
 	</div>
 </div>
 </div>
+{% endif %}
 {% endblock %}
 
 {% block content %}
 {% if request.user.is_authenticated %}
+
+	<h3><span class="fa-stack fa-lg">
+			<!--<i class="fa fa-spinner fa-stack-2x fa-pulse"></i>-->
+			<i class="fa fa-user fa-stack-x"></i>
+	</span>Estás logueado :-) ¡Bienvenido {{ user }}! </h3> 
+
+	{% if queryset %}
+		<h2> Eres un usuario Staff </h2>
+		<h3> Usuarios en la base de datos</h3>  
+		<table class="table">
+		{% for instance in queryset %}
+			<tr><td>{{ forloop.counter }}</td><td>{{ instance }}</td><td>{{ instance.nombre }}</td><td>{{ instance.fecha_registro }}</td></tr>
+		{% endfor %}
+		</table>
+	{% endif %}
+
+{% else %}
 
 <div class="row">
 <!-- Los div siguientes se pueden copiar y/o hacer nuevos se ponen al lado en columna -->
@@ -84,15 +103,6 @@ en custom.css y lo incluímos en el archivo
 	</div>
 
 </div>	
-{% else %}
-
-
-<h2><span class="fa-stack fa-lg">
-			<!--<i class="fa fa-spinner fa-stack-2x fa-pulse"></i>-->
-			<i class="fa fa-user fa-stack-2x"></i>
-		</span>Para ver más contenido tienes que estar logueado</h2>
-
-
 
 {% endif %}
 
