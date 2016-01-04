@@ -149,3 +149,28 @@ ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, us
 REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+
+
+
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
+
+# añadimos esta linea para poder acceder desde el modo seguro
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+# aceptamos las peticiones desde cualquier host
+ALLOWED_HOSTS = ['*']
+
+
+#configuramos el acceso de los archivos estáticos
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
