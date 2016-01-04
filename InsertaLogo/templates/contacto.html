@@ -1,9 +1,31 @@
-<form method="POST" action="">{% csrf_token %}
-{{ form.as_p }}
+{% extends "base.html" %}
+{% load crispy_forms_tags %} <!-- en los form cambiamos .as_p por |crispy -->
 
-<input type='submit' value='Enviar'>
+{% block content %}
 
-<!-- <input type="text">
+{% if titulo %}
+<div class="row">
+	<div class='col-sm-6 col-sm-offset-3'>
+		
+	</div>
+</div>
+{% endif %}
 
-<input> -->
-</form>
+
+<div class="row">
+	<div class='col-sm-6 col-sm-offset-3'>
+
+	<h1 class="{% if tituloCentrado %}text-edit{% endif %}">{{ titulo }}</h1>
+
+		<form method="POST" action="">{% csrf_token %}
+		{{ form|crispy }}
+
+		<input class='btn btn-default' type='submit' value='Enviar'>
+
+		<!-- <input type="text">
+
+		<input> -->
+		</form>
+	</div>
+</div>
+{% endblock %}

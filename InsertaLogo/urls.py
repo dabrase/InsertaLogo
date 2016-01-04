@@ -8,8 +8,11 @@ urlpatterns = [
     # Examples:
     url(r'^$', 'InsertaLogo.views.home', name='home'),
     url(r'^contacto/$', 'InsertaLogo.views.contacto', name='contacto'),
+    url(r'^fluid/$', 'InsertaLogo.views.fluid', name='fluid'),
     url(r'^base/$', 'InsertaLogo.views.base', name='base'),
+    url(r'^sobre/$', 'InsertaLogo.views.sobre', name='sobre'),
     # url(r'^blog/', include('blog.urls')),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
 ]

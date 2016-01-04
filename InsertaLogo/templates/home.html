@@ -1,38 +1,99 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %} <!-- en los form cambiamos .as_p por |crispy -->
+{% load staticfiles %}
 
 {% block head_title %}Bienvenido | {{ block.super }} {% endblock %}
 
-{% block jumbotron %}
+<!-- esto lo sustituímos con un nuevo css con .text-edit{} 
+en custom.css y lo incluímos en el archivo 
+<style>
+{% block style %}
+	.text-edit {
+		text-align: center;
+		color: black;
+	}
+{% endblock %}
+</style>
+-->
+<!--
+{% block jumbotron_ %}
 {{ block.super }}
 {% endblock %}
+-->
 
-{% block jumbotron_content %}
-<h1>Inserta Logo</h1>
-<p>Consiste en la que usuarios pueden poner su sello o logo, en sus fotos de una manera rápida y sencilla.</p>
-<p>Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de Aplicaciones para Internet).</p>
-<p>
-	<a class="btn btn-lg btn-primary" href="https://github.com/magvugr/InsertaLogo" role="button">ReadMe GitHub &raquo;</a>
-</p>
+      
 
+{% block jumbotron %}
+<div class="jumbotron">
+<div class="container">
+	<div class="row">
+		<div class='col-sm-6'>
+			<h1>Inserta Logo</h1>
+			<p class='lead '>Consiste en la que usuarios pueden poner su sello o logo, en sus fotos de una manera rápida y sencilla.</p>
+			<p>Proyecto para las asignaturas IV (Infraestructura Virtual) y DAI (Diseño de Aplicaciones para Internet).</p>
+			<p>
+				<a class="btn btn-lg btn-primary" href="https://github.com/magvugr/InsertaLogo" role="button">
+				<span class="fa-stack fa-lg">
+	  			<!--<i class="fa fa-spinner fa-stack-2x fa-pulse"></i>-->
+	  			<i class="fa fa-github fa-stack-2x"></i>
+			</span> ReadMe GitHub &raquo;</a>
+				
+
+			</p>
+		</div>
+
+		<div class='col-sm-6'>
+			<iframe width="420" height="315" src="https://www.youtube.com/embed/b0Mqccf1x6Y" frameborder="0" allowfullscreen></iframe>
+		</div>
+	</div>
+</div>
+</div>
 {% endblock %}
 
 {% block content %}
+{% if request.user.is_authenticated %}
 
-<h1> {{ template_title }} </h1>
+<div class="row">
+<!-- Los div siguientes se pueden copiar y/o hacer nuevos se ponen al lado en columna -->
+  <div class="col-sm-3 pull-left"> <!--<div class="col-xs-3">-->
 
-{{ user }}
+		<p class='lead text-edit'> {{ template_title }} </p> <!--{{ user }} {{ request.user}} {{ a }} -->
 
-{{ request.user }}
+		<form method="POST" action="">{% csrf_token %}
+		{{ form|crispy }}
 
-{{ a }}
+		<input class='btn btn-primary'type='submit' value='Registrate'>
+		</form>
+	</div>
+	<div class="col-sm-3">
+		<p class='lead text-edit'> Inserta Logo &copy; 2016, Django &amp; Bootstrap </p>
+	</div>
+	<div class="col-sm-3">
+		<p class='lead text-edit'> Contacto: <a href="mailto:magvugr@gmail.com">Miguel Ángel García Villegas</a> </p>
+		<i class="fa fa-circle-o-notch"></i>
 
-<form method="POST" action="">{% csrf_token %}
-{{ form.as_p }}
+	</div>
+	<div class="col-sm-3">
+		<p class='lead text-edit'> 
+			<span class="fa-stack fa-lg">
+	  			<i class="fa fa-circle-o-notch fa-spin"></i>
+	  			<i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+			</span> Siempre código libre 
+		</p> 
+				<div align="center"><img src='{% static "img/etsiit.png" %}' class='img-responsive' /> </div>
+	</div>
 
-<input type='submit' value='Registrate'>
+</div>	
+{% else %}
 
-<!-- <input type="text">
 
-<input> -->
-</form>
+<h2><span class="fa-stack fa-lg">
+			<!--<i class="fa fa-spinner fa-stack-2x fa-pulse"></i>-->
+			<i class="fa fa-user fa-stack-2x"></i>
+		</span>Para ver más contenido tienes que estar logueado</h2>
+
+
+
+{% endif %}
+
 {% endblock %}

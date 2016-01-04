@@ -3,9 +3,17 @@ from django.core.mail import send_mail
 from django.shortcuts import render
 from .forms import RegistroForm, ContactoForm
 
+
 # Create your views here.
 def base(request):
 	return render(request, "base.html")
+
+def fluid(request):
+	return render(request, "fluid.html")
+
+#Navbar
+def sobre(request):
+	return render(request, "sobre.html", {})
 
 def home(request):
 	titulo = 'Bienvenido'
@@ -73,6 +81,8 @@ def home(request):
 
 
 def contacto(request):
+	titulo = "Contacta con nosotros"
+	tituloCentrado = True
 	form = ContactoForm(request.POST or None)
 	if form.is_valid():
 		#for i, value in form.cleaned_data.iteritems():
@@ -104,5 +114,7 @@ def contacto(request):
 	
 	contexto = {
 		"form": form,
+		"titulo": titulo,
+		"tituloCentrado": tituloCentrado,
 	}
 	return render(request, "contacto.html",contexto)
