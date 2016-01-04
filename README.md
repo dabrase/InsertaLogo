@@ -114,14 +114,6 @@ Hemos realizado varios Test para verificar el funcionamiento del proyecto. Para 
 
 Sistema de integración continua comprueba de forma continua que cada cambio realizado al repositorio, siga funcionando correctamente.
 
-**Etiqueta Travis**
-[![Build Status](https://travis-ci.org/magvugr/InsertaLogo.svg?branch=master)](https://travis-ci.org/magvugr/InsertaLogo)
-
-**Etiqueta Shippable**
-[![Shippable](https://img.shields.io/shippable/54d119db5ab6cc13528ab183.svg)](https://app.shippable.com/projects/563cd39c1895ca447422c9bd)
-
-**Etiqueta Snap-ci** [![Build Status](https://snap-ci.com/magvugr/InsertaLogo/branch/master/build_image)](https://snap-ci.com/magvugr/InsertaLogo/branch/master)
-
 - [x] [Travis](https://travis-ci.org/) permite testear el código del proyecto. Para llevar a cabo esto hay que adjuntar en el directorio raíz de nuestro proyecto el fichero **.travis.yml**. Mi archivo [.travis.yml](https://github.com/magvugr/InsertaLogo/blob/master/.travis.yml)
 
 El código utilizado para el fichero .travis.yml es el siguiente:
