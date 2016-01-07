@@ -97,6 +97,7 @@ DATABASES = {
     }
 }
 
+
 '''
 
 DATABASES = {
@@ -108,7 +109,8 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
-}'''
+}
+'''
 
 
 # Internationalization
@@ -151,25 +153,21 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
 
-
+# Parse database configuration from $DATABASE_URL
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
 
-
-# añadimos esta linea para poder acceder desde el modo seguro
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-
-# aceptamos las peticiones desde cualquier host
+# Allow all host headers
 ALLOWED_HOSTS = ['*']
 
-
-#configuramos el acceso de los archivos estáticos
+# Static asset configuration
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
-
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
