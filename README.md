@@ -149,7 +149,7 @@ Las directivas para documentar el código del proyecto, están contempladas en e
 
 ## Despliegue en Heroku (PaaS):
 
-Esta es la aplicación ya desplegada en Heroku: [Aplicación InsertaLogo en Heroku]()
+Esta es la aplicación ya desplegada en Heroku: [Aplicación InsertaLogo en Heroku](https://insertalogo.herokuapp.com/)
 
 Para llevar a cabo el despliegue en Heroku, hay que añadir el fichero ***Procfile*** y el fichero ***requirements.txt***
 
