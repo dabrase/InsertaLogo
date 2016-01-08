@@ -60,12 +60,17 @@ en custom.css y lo incluímos en el archivo
 			<i class="fa fa-user fa-stack-x"></i>
 	</span>Estás logueado :-) ¡Bienvenido {{ user }}! </h3> 
 
+	{% if not queryset %}
+	<h4> Para ver lista de registros de la base de datos debes ser administrador </h4> 
+	<h4>Ejemplo User: admin Pass: admin <h4> 
+	{% endif %}
+
 	{% if queryset %}
 		<h2> Eres un usuario Staff </h2>
-		<h3> Usuarios en la base de datos</h3>  
+		<h3> Registros en la base de datos</h3>  
 		<table class="table">
 		{% for instance in queryset %}
-			<tr><td>{{ forloop.counter }}</td><td>{{ instance }}</td><td>{{ instance.nombre }}</td><td>{{ instance.fecha_registro }}</td></tr>
+			<tr><td>{{ forloop.counter }}</td><td>{{ instance }}</td><td>{{ instance.apellidos }}</td><td>{{ instance.fecha_registro }}</td></tr>
 		{% endfor %}
 		</table>
 	{% endif %}
@@ -76,7 +81,7 @@ en custom.css y lo incluímos en el archivo
 <!-- Los div siguientes se pueden copiar y/o hacer nuevos se ponen al lado en columna -->
   <div class="col-sm-3 pull-left"> <!--<div class="col-xs-3">-->
 
-		<p class='lead text-edit'> {{ template_title }} </p> <!--{{ user }} {{ request.user}} {{ a }} -->
+		<p class='lead text-edit'> {{ template_title }}, Inserta Registro </p> <!--{{ user }} {{ request.user}} {{ a }} -->
 
 		<form method="POST" action="">{% csrf_token %}
 		{{ form|crispy }}
