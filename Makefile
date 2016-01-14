@@ -1,25 +1,40 @@
 #Miguel Angel Garcia Villegas
 
+#Makefile
+
 clean:
-	- rm -rf *~*
-	- find . -name '*.pyc' -exec rm {} \;
+	rm -rf *~* && find . -name '*.pyc' -exec rm {} \;
+	
 install:
-	- python insertaLogo/setup.py install
-test:
-	- python manage.py test 
- 
-heroku:
-	- wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh   
-	- heroku login
-	- heroku create
-	- git add .
-	- git commit -m "Subir a Heroku"
-	- git push heroku master
-	- heroku ps:scale web=1
-	- heroku open
+	sudo apt-get update 
+	sudo apt-get install -y libmysqlclient-dev
+	sudo apt-get install -y python-dev
+	sudo apt-get install -y libjpeg8-dev
+	sudo apt-get install -y libtiff4-dev
+	sudo apt-get install -y zlib1g-dev
+	sudo apt-get install -y libfreetype6-dev
+	sudo apt-get install -y liblcms1-dev
+	sudo apt-get install -y libwebp-dev
+	sudo apt-get install -y python-pip
+	sudo pip install --upgrade pip
+	sudo pip install -r requirements.txt
+
+test: 
+	export DJANGO_SETTINGS_MODULE=InsertaLogo.settings && nosetests
 
 run:
 	- python manage.py runserver
 doc:
 	- pycco *.py
-	- pycco insertaLogo/*.py
+	
+heroku:
+	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh   
+	heroku login
+	heroku create
+	git add .
+	git commit -m "Despliegue heroku"
+	git push heroku master
+	heroku ps:scale web=1
+	heroku open
+
+
