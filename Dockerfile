@@ -23,7 +23,7 @@ WORKDIR InsertaLogo
 # Instalacion de las dependencias del proyecto
 RUN pip install -r requirements.txt
 
-EXPOSE 8000
+EXPOSE 1112
 CMD python manage.py runserver 
 
 
