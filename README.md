@@ -44,30 +44,50 @@ He realizado un archivo [make](https://github.com/magvugr/InsertaLogo/blob/maste
 
 El código de mi Makefile es el siguiente:
 
-		#Miguel Angel Garcia Villegas
+#Miguel Angel Garcia Villegas
+
+#Makefile
 
 		clean:
-		- rm -rf *~*
-		- find . -name '*.pyc' -exec rm {} \;
+			rm -rf *~* && find . -name '*.pyc' -exec rm {} \;
+
 		install:
-		- python setup.py install
+			sudo apt-get update
+			sudo apt-get install -y libmysqlclient-dev
+			sudo apt-get install -y python-dev
+			sudo apt-get install -y libjpeg8-dev
+			sudo apt-get install -y libtiff4-dev
+			sudo apt-get install -y zlib1g-dev
+			sudo apt-get install -y libfreetype6-dev
+			sudo apt-get install -y liblcms1-dev
+			sudo apt-get install -y libwebp-dev
+			sudo apt-get install -y python-pip
+			sudo pip install --upgrade pip
+			sudo pip install -r requirements.txt
+
 		test:
-		- python manage.py test
+			export DJANGO_SETTINGS_MODULE=InsertaLogo.settings && nosetests
 
 		run:
-		- python manage.py runserver
+			- python manage.py runserver
 		doc:
-		- pycco *.py
+			- pycco *.py
 
 		heroku:
-		- wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh   
-		- heroku login
-		- heroku create
-		- git add .
-		- git commit -m "Subir a Heroku"
-		- git push heroku master
-		- heroku ps:scale web=1
-		- heroku open
+			wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh   
+			heroku login
+			heroku create
+			git add .
+			git commit -m "Despliegue heroku"
+			git push heroku master
+			heroku ps:scale web=1
+			heroku open
+
+		docker:
+			sudo apt-get update
+			sudo apt-get install -y docker.io
+			sudo docker pull magvugr/insertalogo
+			sudo docker run -p 8000:8000 -t -i magvugr/insertalogo /bin/bash
 
 
 Algunas de las diferentes opciones del Makefile (que se irán añadiendo más):
@@ -157,3 +177,41 @@ Para llevar a cabo el despliegue en Heroku, hay que añadir el fichero ***Procfi
 Para que nuestra aplicación se ejecute debemos de definir nuestros [dynos](https://devcenter.heroku.com/articles/dynos). Un dyno no es más que un contenedor que ejecuta el comando que le especificamos.
 
 - Mi archivo [requirements.txt](https://github.com/magvugr/InsertaLogo/blob/master/requirements.txt) que sirve para que Heroku reconozca una aplicación Python y para que conozca sus dependencias. Éste archivo tiene que terner formato txt y debe estar colocado en el directorio raíz del repositorio. Éste fichero se puede generar ejecutando en el terminal ***pip freeze > requirements.txt***
+
+## Docker:
+
+Docker es un proyecto de código abierto con el que fácilmente podremos crear "contenedores". Estos contenedores de Docker podríamos definirlos como máquinas virtuales ligeras, menos exigentes con los chips y memorias de los equipos donde se ejecutarán.
+
+Mi repositorio Docker Automated Build es https://hub.docker.com/r/magvugr/insertalogo/
+
+Mi fichero Dockerfile
+		# Sistema operativo
+		FROM ubuntu:latest
+
+		# Autor
+		MAINTAINER Miguel Angel Garcia Villegas <magvugr@gmail.com>
+
+		#Actualizar Sistema Base
+		RUN sudo apt-get -y update
+
+		# Instalacion
+		RUN sudo apt-get install -y git
+		RUN sudo git clone https://github.com/magvugr/InsertaLogo
+
+		#Instalar python
+		RUN sudo apt-get -y install python-dev
+		RUN sudo apt-get install -y python-setuptools
+		RUN sudo apt-get install -y build-essential
+		RUN sudo apt-get -y install libpq-dev
+		RUN sudo easy_install pip
+		RUN sudo pip install --upgrade pip
+
+		WORKDIR InsertaLogo
+		# Instalacion de las dependencias del proyecto
+		RUN pip install -r requirements.txt
+
+		EXPOSE 8000
+		CMD python manage.py runserver
+
+
+Para ejecutarlo de forma local, hay que hacer ejecutar en el terminal ```make docker```
