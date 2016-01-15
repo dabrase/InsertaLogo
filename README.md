@@ -182,37 +182,15 @@ Para que nuestra aplicación se ejecute debemos de definir nuestros [dynos](http
 
 Docker es un proyecto de código abierto con el que fácilmente podremos crear "contenedores". Estos contenedores de Docker podríamos definirlos como máquinas virtuales ligeras, menos exigentes con los chips y memorias de los equipos donde se ejecutarán.
 
-Mi repositorio Docker Automated Build es https://hub.docker.com/r/magvugr/insertalogo/
 
-Mi fichero [Dockerfile](https://github.com/magvugr/InsertaLogo/blob/master/Dockerfile)
-
-		# Sistema operativo
-		FROM ubuntu:latest
-
-		# Autor
-		MAINTAINER Miguel Angel Garcia Villegas <magvugr@gmail.com>
-
-		#Actualizar Sistema Base
-		RUN sudo apt-get -y update
-
-		# Instalacion
-		RUN sudo apt-get install -y git
-		RUN sudo git clone https://github.com/magvugr/InsertaLogo
-
-		#Instalar python
-		RUN sudo apt-get -y install python-dev
-		RUN sudo apt-get install -y python-setuptools
-		RUN sudo apt-get install -y build-essential
-		RUN sudo apt-get -y install libpq-dev
-		RUN sudo easy_install pip
-		RUN sudo pip install --upgrade pip
-
-		WORKDIR InsertaLogo
-		# Instalacion de las dependencias del proyecto
-		RUN pip install -r requirements.txt
-
-		EXPOSE 8000
-		CMD python manage.py runserver
-
+Para crear la imagen, Docker usa un fichero dentro del código de la aplicación llamado [Dockerfile](https://github.com/magvugr/InsertaLogo/blob/master/Dockerfile) para la construcción de la imagen.
 
 Para ejecutarlo de forma local, hay que hacer ejecutar en el terminal ```make docker```
+
+Instala Docker, crea el contenedor con la aplicación instalada en él, y arranca el entorno de pruebas. Dentro de este bastará con hacer make run en el directorio de la aplicación para ejecutar nuestra app como si estuviera localmente y así poder probar su correcto funcionamiento.
+
+En la web de [Docker Hub](https://hub.docker.com/) una vez logueados, creamos un "Automated Build" sobre el repositorio de nuestro proyecto, lo cual comenzará a crear la imagen.
+
+Ahora todos los cambios se integran en tiempo real y de forma automatizada mediante Docker Hub cada vez que hagamos un ```git push```.
+
+Mi repositorio Docker Automated Build es https://hub.docker.com/r/magvugr/insertalogo/
