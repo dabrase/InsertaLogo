@@ -37,4 +37,10 @@ heroku:
 	heroku ps:scale web=1
 	heroku open
 
+docker:
+	sudo apt-get update
+	sudo apt-get install -y docker.io
+	sudo docker pull magvugr/insertalogo
+	sudo docker run -p 8000:8000 -t -i magvugr/insertalogo /bin/bash
+
 
