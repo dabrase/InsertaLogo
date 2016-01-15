@@ -7,27 +7,31 @@ MAINTAINER Miguel Angel Garcia Villegas <magvugr@gmail.com>
 #Actualizar Sistema Base
 RUN sudo apt-get -y update
 
-#Descargar aplicacion
+# Instalacion 
 RUN sudo apt-get install -y git
 RUN sudo git clone https://github.com/magvugr/InsertaLogo
 
-# Instalacion 
-RUN sudo apt-get install -y python-setuptools
+#Instalar python
 RUN sudo apt-get -y install python-dev
-RUN sudo apt-get -y install build-essential
+RUN sudo apt-get install -y python-setuptools
+RUN sudo apt-get install -y build-essential
 RUN sudo apt-get -y install python-psycopg2
 RUN sudo apt-get -y install libpq-dev
 RUN sudo easy_install pip
 RUN sudo pip install --upgrade pip
 
+WORKDIR InsertaLogo
+# Instalacion de las dependencias del proyecto
+RUN pip install -r requirements.txt
 
-# Instalacion de la app y sus dependencias
-RUN cd InsertaLogo/ && sudo pip install -r requirements.txt
+EXPOSE 8000
+CMD python manage.py runserver 
 
-#RUN cd InsertaLogo && git pull
-#RUN cd InsertaLogo && make install
 
-#Migraciones
-RUN cd InsertaLogo/ && python manage.py syncdb --noinput
+
+
+
+
+
 
 
