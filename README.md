@@ -185,12 +185,14 @@ Docker es un proyecto de código abierto con el que fácilmente podremos crear "
 
 Para crear la imagen, Docker usa un fichero dentro del código de la aplicación llamado [Dockerfile](https://github.com/magvugr/InsertaLogo/blob/master/Dockerfile) para la construcción de la imagen.
 
-Para ejecutarlo de forma local, hay que hacer ejecutar en el terminal ```make docker```
-
-Instala Docker, crea el contenedor con la aplicación instalada en él, y arranca el entorno de pruebas. Dentro de este bastará con hacer make run en el directorio de la aplicación para ejecutar nuestra app como si estuviera localmente y así poder probar su correcto funcionamiento.
-
 En la web de [Docker Hub](https://hub.docker.com/) una vez logueados, creamos un "Automated Build" sobre el repositorio de nuestro proyecto, lo cual comenzará a crear la imagen.
+
+Mi repositorio Docker Automated Build es https://hub.docker.com/r/magvugr/insertalogo/
 
 Ahora todos los cambios se integran en tiempo real y de forma automatizada mediante Docker Hub cada vez que hagamos un ```git push```.
 
-Mi repositorio Docker Automated Build es https://hub.docker.com/r/magvugr/insertalogo/
+Para ejecutarlo de forma local, hay que ejecutar en el terminal ```make docker```
+
+Instala Docker, descarga el contenedor con la aplicación instalada en él, y arranca el entorno de pruebas.
+
+Para ver que la aplicación de verdad está funcionando crea servidor web localmente y hay que introducir la url en el navegador para acceder a la aplicación.
