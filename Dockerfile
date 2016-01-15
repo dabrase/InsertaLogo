@@ -15,7 +15,6 @@ RUN sudo git clone https://github.com/magvugr/InsertaLogo
 RUN sudo apt-get -y install python-dev
 RUN sudo apt-get install -y python-setuptools
 RUN sudo apt-get install -y build-essential
-RUN sudo apt-get -y install python-psycopg2
 RUN sudo apt-get -y install libpq-dev
 RUN sudo easy_install pip
 RUN sudo pip install --upgrade pip
