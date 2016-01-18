@@ -13,7 +13,7 @@ Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de 
 
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://insertalogo.herokuapp.com/)
 
-**Docker Hub** [![Docker](https://hub.docker.com/public/images/logos/mini-logo.svg)](https://hub.docker.com/r/magvugr/insertalogo/)
+**Docker Hub** [![Docker](https://www.dropbox.com/s/pv4t7wlh8cztcin/docker-logo_w_195.png?dl=1)](https://hub.docker.com/r/magvugr/insertalogo/)
 
 ## Descripción
 
