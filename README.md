@@ -13,6 +13,8 @@ Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de 
 
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://insertalogo.herokuapp.com/)
 
+**Docker Hub** [![Docker](https://hub.docker.com/public/images/logos/mini-logo.svg)](https://hub.docker.com/r/magvugr/insertalogo/)
+
 ## Descripción
 
 Consiste en la que usuarios pueden poner su sello o logo, en sus fotos de una manera rápida y sencilla.
