@@ -196,3 +196,5 @@ Para ejecutarlo de forma local, hay que ejecutar en el terminal ```make docker``
 Instala Docker, descarga el contenedor con la aplicación instalada en él, y arranca el entorno de pruebas.
 
 Para ver que la aplicación de verdad está funcionando crea servidor web localmente y hay que introducir la url en el navegador para acceder a la aplicación.
+
+![resultado](https://www.dropbox.com/s/5lf6l9ivkguuteh/Captura%20de%20pantalla%20de%202016-01-15%2013%3A17%3A14.png?dl=1)
