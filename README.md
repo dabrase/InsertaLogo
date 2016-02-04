@@ -204,3 +204,28 @@ Instala Docker, descarga el contenedor con la aplicación instalada en él, y ar
 Para ver que la aplicación de verdad está funcionando crea servidor web localmente y hay que introducir la url en el navegador para acceder a la aplicación.
 
 ![resultado](https://www.dropbox.com/s/5lf6l9ivkguuteh/Captura%20de%20pantalla%20de%202016-01-15%2013%3A17%3A14.png?dl=1)
+
+
+## Acceso Remoto y Automatización con Fabric
+
+[Fabric](http://www.fabfile.org/) es una librería para Python y línea de comandos para coordinar el uso de SSH para implementación de aplicaciones o tareas de administración de sistemas.
+
+Para instalar Fabric, ***apt-get install fabric***
+Para comenzar a realizar nuestras tareas, debemos crear un archivo llamado [fabfile.py](https://github.com/magvugr/InsertaLogo/blob/master/fabfile.py)
+En ese archivo definirán todas las tareas que deseen realizar.
+Para ejecutar esa tarea utilizamos el comando fab, especificando en qué host vamos a trabajar.
+
+Fabric, utiliza SSH para realizar las tareas, ya sea en local o en remoto. Para no tener que colocar la contraseña cada vez que ejecutemos la tarea, podemos definir el usuario y la contraseña con la que deseamos conectarnos al SSH.
+
+Para definir el usuario y contraseña se importa env. El código ahora quedará así:
+
+			from fabric.api import task, run, env
+
+			env.user = 'yograterol'
+			env.password = 'tu contraseña aquí'
+			env.hosts = ['localhost', ]
+
+
+			@task
+			def informacion_sistema():
+			    run('uname -a')
