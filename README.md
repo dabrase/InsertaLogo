@@ -243,4 +243,4 @@ Para definir el usuario y contraseña se importa env. El código ahora quedará 
 
 ## Ansible
 
-[Ansible](http://www.ansible.com/)
+[Ansible](http://www.ansible.com/) es una herramienta open-source desarrollada en python y comercialmente ofrecida por AnsibleWorks que la definen como un motor de orquestación muy simple que automatiza las tareas necesarias en el campo de las TI.
