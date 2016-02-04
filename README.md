@@ -15,6 +15,10 @@ Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de 
 
 **Docker Hub** [![Docker](https://www.dropbox.com/s/pv4t7wlh8cztcin/docker-logo_w_195.png?dl=1)](https://hub.docker.com/r/magvugr/insertalogo/)
 
+**Fabric**
+[![Fabric](https://www.dropbox.com/s/8gmnun9iy72o2f4/logo.png?dl=1)](https://github.com/magvugr/InsertaLogo/blob/master/fabfile.py)
+
+
 ## Descripción
 
 Consiste en la que usuarios pueden poner su sello o logo, en sus fotos de una manera rápida y sencilla.
