@@ -18,6 +18,9 @@ Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de 
 **Fabric**
 [![Fabric](https://www.dropbox.com/s/8gmnun9iy72o2f4/logo.png?dl=1)](https://github.com/magvugr/InsertaLogo/blob/master/fabfile.py)
 
+**Vagrant**
+[![Vagrant](https://www.dropbox.com/s/k9rxzzsghouo8cu/vagrant-logo.png?dl=1)](https://github.com/magvugr/InsertaLogo/blob/master/Vagrantfile)
+
 
 ## Descripción
 
@@ -211,7 +214,9 @@ Para ver que la aplicación de verdad está funcionando crea servidor web localm
 [Fabric](http://www.fabfile.org/) es una librería para Python y línea de comandos para coordinar el uso de SSH para implementación de aplicaciones o tareas de administración de sistemas.
 
 Para instalar Fabric, ***apt-get install fabric***
-Para comenzar a realizar nuestras tareas, debemos crear un archivo llamado [fabfile.py](https://github.com/magvugr/InsertaLogo/blob/master/fabfile.py)
+
+Para comenzar a realizar nuestras tareas, debemos crear un archivo llamado [fabfile.py](https://github.com/magvugr/InsertaLogo/blob/master/fabfile.py).
+
 En ese archivo definirán todas las tareas que deseen realizar.
 Para ejecutar esa tarea utilizamos el comando fab, especificando en qué host vamos a trabajar.
 
@@ -221,11 +226,15 @@ Para definir el usuario y contraseña se importa env. El código ahora quedará 
 
 			from fabric.api import task, run, env
 
-			env.user = 'yograterol'
-			env.password = 'tu contraseña aquí'
+			env.user = 'magvugr'
+			env.password = 'contrasena'
 			env.hosts = ['localhost', ]
-
 
 			@task
 			def informacion_sistema():
 			    run('uname -a')
+
+
+## Vagrant
+
+[Vagrant](https://www.vagrantup.com/) es una herramienta de software libre, multiplataforma, para la creación y configuración de entornos de desarrollo virtualizados ligeros, reproducibles y portables. De este modo, podremos automatizar la creación y gestión de máquinas virtuales.
