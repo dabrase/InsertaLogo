@@ -21,6 +21,8 @@ Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de 
 **Vagrant**
 [![Vagrant](https://www.dropbox.com/s/k9rxzzsghouo8cu/vagrant-logo.png?dl=1)](https://github.com/magvugr/InsertaLogo/blob/master/Vagrantfile)
 
+**Ansible**
+![Ansible](https://www.dropbox.com/s/iczkyl2xg35wr7o/ansible-logo.jpg?dl=1)
 
 ## Descripción
 
@@ -238,3 +240,7 @@ Para definir el usuario y contraseña se importa env. El código ahora quedará 
 ## Vagrant
 
 [Vagrant](https://www.vagrantup.com/) es una herramienta de software libre, multiplataforma, para la creación y configuración de entornos de desarrollo virtualizados ligeros, reproducibles y portables. De este modo, podremos automatizar la creación y gestión de máquinas virtuales.
+
+## Ansible
+
+[Ansible](http://www.ansible.com/)
