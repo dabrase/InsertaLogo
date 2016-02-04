@@ -1,33 +1,41 @@
-from fabric.api import run, local, hosts, cd
+from fabric.api import task, run, local, hosts, cd, env
 
-########         Docker y descargar imagen Inserta Logo
+env.user = 'magvugr'
+env.password = 'contrasena'
+env.hosts = ['localhost', ]
+
+@task
+def informacion_sistema():
+    run('uname -a')
+
+########   Docker y descargar imagen Inserta Logo
 def getdocker():
 	run('sudo apt-get update')
 	run('sudo apt-get install -y docker.io')
 	run('sudo docker pull magvugr/insertalogo')
 
-########         Ejecutamos Docker
+########   Ejecutamos Docker
 def rundocker():
 	run('sudo docker run -i -t magvugr/insertalogo')
 
-########         Clonamos repositorio
+########   Clonamos repositorio
 def getapp():
 	run('sudo apt-get update')
 	run('sudo apt-get install -y git')
 	run('sudo git clone https://github.com/magvugr/InsertaLogo.git')
 
-########         Install del make
+########   Install del make
 def install():
 	run('cd InsertaLogo && make install')
 
-########         Test
+########   Test
 def test():
 	run('cd InsertaLogo && make test')
 
-########         Ejecucion app
+########   Ejecucion app
 def run_app():
 	run('cd InsertaLogo/InsertaLogo && python manage.py runserver 8000')
 
-########         Borrar
+########   Borrar
 def remove():
     run('sudo rm -r InsertaLogo')
