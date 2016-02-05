@@ -18,6 +18,9 @@ Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de 
 **Fabric**
 [![Fabric](https://www.dropbox.com/s/8gmnun9iy72o2f4/logo.png?dl=1)](https://github.com/magvugr/InsertaLogo/blob/master/fabfile.py)
 
+**Azure**
+![Azure](https://www.dropbox.com/s/uaqywmogorsfc89/microsoft-azure-cloud-2.0%20%281%29.jpg?dl=1)
+
 **Vagrant**
 [![Vagrant](https://www.dropbox.com/s/k9rxzzsghouo8cu/vagrant-logo.png?dl=1)](https://github.com/magvugr/InsertaLogo/blob/master/Vagrantfile)
 
@@ -233,6 +236,9 @@ Para definir el usuario y contraseña se importa env. El código ahora quedará 
 			def informacion_sistema():
 			    run('uname -a')
 
+## Azure
+[Microsoft Azure] (https://azure.microsoft.com/es-es/) es una plataforma ofrecida como servicio y alojada en los Data Centers de Microsoft.
+
 
 ## Vagrant
 
@@ -241,3 +247,5 @@ Para definir el usuario y contraseña se importa env. El código ahora quedará 
 ## Ansible
 
 [Ansible](http://www.ansible.com/) es una herramienta open-source desarrollada en python y comercialmente ofrecida por AnsibleWorks que la definen como un motor de orquestación muy simple que automatiza las tareas necesarias en el campo de las TI.
+
+## Azure a través de Ansible y Vagrant
