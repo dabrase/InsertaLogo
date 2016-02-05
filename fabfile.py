@@ -34,7 +34,7 @@ def test():
 
 ########   Ejecucion app
 def run_app():
-	run('cd InsertaLogo/InsertaLogo && python manage.py runserver 8000')
+	run('cd InsertaLogo && python manage.py runserver 8000')
 
 ########   Borrar
 def remove():
