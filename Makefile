@@ -20,8 +20,7 @@ install:
 	sudo pip install -r requirements.txt
 
 installa:
-		sudo apt-get update
-		sudo pip install -r requirements.txt
+	sudo pip install -r requirements.txt
 
 test:
 	export DJANGO_SETTINGS_MODULE=InsertaLogo.settings && nosetests
