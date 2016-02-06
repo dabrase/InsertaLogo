@@ -2,3 +2,5 @@
 *.#
 *.pyc
 EntVirtual
+*.cer
+*.pem

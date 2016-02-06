@@ -1,149 +1,35 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
+#Instalar plugin azure
 
-# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
-VAGRANTFILE_API_VERSION = "2"
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  # All Vagrant configuration is done here. The most common configuration
-  # options are documented and commented below. For a complete reference,
-  # please see the online documentation at vagrantup.com.
-
-  # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "base"
-
-  Vagrant.configure('2') do |config|
+Vagrant.configure('2') do |config|
     config.vm.box = 'azure'
 
     config.vm.provider :azure do |azure, override|
         # Mandatory Settings
-        azure.mgmt_certificate = File.expand_path('cert.pem')
+        azure.mgmt_certificate = File.expand_path('azure.pem')
         azure.mgmt_endpoint    = 'https://management.core.windows.net'
-        azure.subscription_id = 'cc8baa98-9461-4225-866e-6b3e41c51556'
-        azure.vm_name     = 'insertalogo-vagrantazure'
+        azure.subscription_id = '4e1c207e-6d2a-4a22-8a55-692f01657a98'
+        azure.vm_name     = 'insertalogo'
         azure.vm_image    = 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_2-LTS-amd64-server-20150506-en-us-30GB'
         azure.vm_size     = 'Small'
-        config.vm.box     = 'azure'
         config.vm.box_url = 'https://github.com/msopentech/vagrant-azure/raw/master/dummy.box'
 
 	# Optional Settings
-        azure.vm_user = 'ILvagrant' # defaults to 'vagrant' if not provided
-        azure.vm_location = 'Central US' # e.g., West US
-
+        azure.vm_user = 'magvugr' # defaults to 'vagrant' if not provided
+        azure.vm_password = 'A12345@b'
+        azure.vm_location = 'North Europe' # e.g., West US
         azure.ssh_port             = '22'
-        azure.ssh_private_key_file = File.expand_path('cert.pem')
+      end
+      config.ssh.username = 'magvugr'
+      config.ssh.password = 'A12345@b'
+      config.vm.synced_folder ".", "/vagrant",disabled:true #Evitar subir la copia local
 
-#Provisionamiento
+# Instalacion ansible sudo pip install ansible
+#Ansible
   config.vm.provision "ansible" do |ansible|
+    ansible.sudo = true
+    ansible.raw_arguments = ["-vvvv"]
+    ansible.force_remote_user = false
     ansible.playbook = "ansible/webservice.yml"
-    ansible.inventory_path = "ansible/vagrant_ansible_inventory"
     #ansible.playbook = ".vagrant/provisioners/ansible/inventory/webservice.yml"
-
-    end
   end
-
-
-  # The url from where the 'config.vm.box' box will be fetched if it
-  # doesn't already exist on the user's system.
-  # config.vm.box_url = "http://domain.com/path/to/above.box"
-
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network :forwarded_port, guest: 80, host: 8080
-
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network :private_network, ip: "192.168.33.10"
-
-  # Create a public network, which generally matched to bridged network.
-  # Bridged networks make the machine appear as another physical device on
-  # your network.
-  # config.vm.network :public_network
-
-  # If true, then any SSH connections made will enable agent forwarding.
-  # Default value: false
-  # config.ssh.forward_agent = true
-
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
-
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
-  # config.vm.provider :virtualbox do |vb|
-  #   # Don't boot with headless mode
-  #   vb.gui = true
-  #
-  #   # Use VBoxManage to customize the VM. For example to change memory:
-  #   vb.customize ["modifyvm", :id, "--memory", "1024"]
-  # end
-  #
-  # View the documentation for the provider you're using for more
-  # information on available options.
-
-  # Enable provisioning with Puppet stand alone.  Puppet manifests
-  # are contained in a directory path relative to this Vagrantfile.
-  # You will need to create the manifests directory and a manifest in
-  # the file base.pp in the manifests_path directory.
-  #
-  # An example Puppet manifest to provision the message of the day:
-  #
-  # # group { "puppet":
-  # #   ensure => "present",
-  # # }
-  # #
-  # # File { owner => 0, group => 0, mode => 0644 }
-  # #
-  # # file { '/etc/motd':
-  # #   content => "Welcome to your Vagrant-built virtual machine!
-  # #               Managed by Puppet.\n"
-  # # }
-  #
-  # config.vm.provision :puppet do |puppet|
-  #   puppet.manifests_path = "manifests"
-  #   puppet.manifest_file  = "site.pp"
-  # end
-
-  # Enable provisioning with chef solo, specifying a cookbooks path, roles
-  # path, and data_bags path (all relative to this Vagrantfile), and adding
-  # some recipes and/or roles.
-  #
-  # config.vm.provision :chef_solo do |chef|
-  #   chef.cookbooks_path = "../my-recipes/cookbooks"
-  #   chef.roles_path = "../my-recipes/roles"
-  #   chef.data_bags_path = "../my-recipes/data_bags"
-  #   chef.add_recipe "mysql"
-  #   chef.add_role "web"
-  #
-  #   # You may also specify custom JSON attributes:
-  #   chef.json = { :mysql_password => "foo" }
-  # end
-
-  # Enable provisioning with chef server, specifying the chef server URL,
-  # and the path to the validation key (relative to this Vagrantfile).
-  #
-  # The Opscode Platform uses HTTPS. Substitute your organization for
-  # ORGNAME in the URL and validation key.
-  #
-  # If you have your own Chef Server, use the appropriate URL, which may be
-  # HTTP instead of HTTPS depending on your configuration. Also change the
-  # validation key to validation.pem.
-  #
-  # config.vm.provision :chef_client do |chef|
-  #   chef.chef_server_url = "https://api.opscode.com/organizations/ORGNAME"
-  #   chef.validation_key_path = "ORGNAME-validator.pem"
-  # end
-  #
-  # If you're using the Opscode platform, your validator client is
-  # ORGNAME-validator, replacing ORGNAME with your organization name.
-  #
-  # If you have your own Chef Server, the default validation client name is
-  # chef-validator, unless you changed the configuration.
-  #
-  #   chef.validation_client_name = "ORGNAME-validator"
 end

@@ -1,0 +1,24 @@
+---
+- hosts: default
+  user: magvugr
+  sudo: yes
+
+  tasks:
+    #Instalacion requisitos
+  - name: Actualizar
+    apt: update_cache=yes
+
+  - name: Instalar buildessential
+    apt: name=build-essential state=present
+
+  - name: Install git
+    apt: name=git state=present
+
+  - name: Borrar si Actualiza
+    shell: rm -rf InsertaLogo
+
+  - name: Clonar InsertaLogo
+    git: repo=https://github.com/magvugr/InsertaLogo.git dest=InsertaLogo clone=yes force=yes
+
+  - name: Install
+    shell: cd InsertaLogo/ && make install

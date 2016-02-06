@@ -43,4 +43,5 @@ docker:
 	sudo docker pull magvugr/insertalogo
 	sudo docker run -p 8000:8000 -t -i magvugr/insertalogo /bin/bash
 
-
+azure:
+	
