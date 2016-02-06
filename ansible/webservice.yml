@@ -21,4 +21,4 @@
     git: repo=https://github.com/magvugr/InsertaLogo.git dest=InsertaLogo clone=yes force=yes
 
   - name: Install
-    shell: cd InsertaLogo/ && make install
+    shell: cd InsertaLogo/ && make installa
