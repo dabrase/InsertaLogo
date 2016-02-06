@@ -4,3 +4,4 @@
 EntVirtual
 *.cer
 *.pem
+.vagrant
