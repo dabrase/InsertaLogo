@@ -224,18 +224,6 @@ Para ejecutar esa tarea utilizamos el comando fab, especificando en qué host va
 
 Fabric, utiliza SSH para realizar las tareas, ya sea en local o en remoto. Para no tener que colocar la contraseña cada vez que ejecutemos la tarea, podemos definir el usuario y la contraseña con la que deseamos conectarnos al SSH.
 
-Para definir el usuario y contraseña se importa env. El código ahora quedará así:
-
-			from fabric.api import task, run, env
-
-			env.user = 'magvugr'
-			env.password = 'contrasena'
-			env.hosts = ['localhost', ]
-
-			@task
-			def informacion_sistema():
-			    run('uname -a')
-
 ## Azure
 [Microsoft Azure] (https://azure.microsoft.com/es-es/) es una plataforma ofrecida como servicio y alojada en los Data Centers de Microsoft.
 
@@ -248,4 +236,28 @@ Para definir el usuario y contraseña se importa env. El código ahora quedará 
 
 [Ansible](http://www.ansible.com/) es una herramienta open-source desarrollada en python y comercialmente ofrecida por AnsibleWorks que la definen como un motor de orquestación muy simple que automatiza las tareas necesarias en el campo de las TI.
 
-## Azure a través de Ansible y Vagrant
+## Azure + Vagrant + Ansible + Fabric
+
+Para llevar a cabo nuestra app ***InsertaLogo*** hemos tenido que:
+- [x] Crear una cuenta en [Dreamspark](https://www.dreamspark.com/) una vez verifiquemos nuestra inscripción académica ya podemos hospedar aplicaciones web en [Azure](https://azure.microsoft.com/es-es/).
+
+- [x] Entramos en [Windows Azure](manage.windowsazure.com) y configuramos las subcripciones.
+
+- [x] Ahora para desplegar máquinas en Azure, vamos a utilizar Vagrant y Ansible.
+
+- [x] Nuestro fichero [Vagrantfile](https://github.com/magvugr/InsertaLogo/blob/master/Vagrantfile), encargado de crear la máquina y su gestión de usuarios.
+
+- [x] Nuestro fichero [Ansible](https://github.com/magvugr/InsertaLogo/blob/master/ansible/webservice.yml), encargado de instalar las dependencias necesarias.
+
+- [x] Generar certificados y subir nuestro certificado ***.cer*** a nuestro servidor Azure.
+
+- [x] Una vez hayamos los realizados los pasos anteriores, ejecutamos en el terminal ***vagrant up --provider=azure***, aque seguidamente comenzará con el despliegue de nuestra app en azure.
+
+- [x] Nuestro fichero [Fabric](https://github.com/magvugr/InsertaLogo/blob/master/fabfile.py) encargado de conectarse a la máquina por nosotros, además de automatizar las diferentes tareas que podemos indicar en el archivo ***Fabfile***.
+
+Un ejemplo de uso:
+ ![Fab](https://www.dropbox.com/s/8z4gyn78i69oeij/Ejecuci%C3%B3n%20Fab.png?dl=1)
+
+Aquí dejo un pantallazo de la app, funcionando. Aunque se puede consultar en el siguiente enlace ->  http://insertalogo.cloudapp.net/
+
+ ![InsertaLogoCLoudapp](https://www.dropbox.com/s/bwv08eanwoxd1se/InsertaLogoCloudapp.png?dl=1)
