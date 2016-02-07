@@ -1,10 +1,5 @@
 from fabric.api import task, run, local, hosts, cd, env
 
-env.user = 'magvugr'
-env.password = 'contrasena'
-env.hosts = ['localhost', ]
-
-@task
 def informacion_sistema():
     run('uname -a')
 
@@ -34,7 +29,10 @@ def test():
 
 ########   Ejecucion app
 def run_app():
-	run('cd InsertaLogo && python manage.py runserver 8000')
+	run('cd InsertaLogo && sudo python manage.py runserver 0.0.0.0:80')
+
+def run_app_2():
+    run('cd InsertaLogo && sudo gunicorn -b 0.0.0.0:80 InsertaLogo.wsgi --log-file - &')
 
 ########   Borrar
 def remove():
