@@ -1,4 +1,4 @@
-#Instalar plugin azure
+#Instalar plugin azure vagrant plugin install vagrant-azure
 
 Vagrant.configure('2') do |config|
     config.vm.box = 'azure'
