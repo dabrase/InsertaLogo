@@ -1,6 +1,6 @@
 ---
 - hosts: default
-  user: magvugr
+  user: ma
   sudo: yes
 
   tasks:
@@ -25,6 +25,9 @@
 
   - name: InstalarPip Dev
     apt: name=python-dev state=present
+
+  - name: InstalarPip libpq-dev
+    apt: name=libpq-dev state=present
 
   - name: Install
     shell: cd InsertaLogo/ && make installa
