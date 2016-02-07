@@ -20,5 +20,11 @@
   - name: Clonar InsertaLogo
     git: repo=https://github.com/magvugr/InsertaLogo.git dest=InsertaLogo clone=yes force=yes
 
+  - name: InstalarPip
+    apt: name=python-pip state=present
+
+  - name: InstalarPip Dev
+    apt: name=python-dev state=present
+
   - name: Install
     shell: cd InsertaLogo/ && make installa
