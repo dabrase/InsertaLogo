@@ -13,6 +13,8 @@ Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de 
 
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://insertalogo.herokuapp.com/)
 
+[<img src="http://azuredeploy.net/deploybutton.png" alt="Azure" height=32>](http://insertalogo.cloudapp.net/)
+
 **Docker Hub** [![Docker](https://www.dropbox.com/s/pv4t7wlh8cztcin/docker-logo_w_195.png?dl=1)](https://hub.docker.com/r/magvugr/insertalogo/)
 
 **Fabric**
@@ -25,7 +27,7 @@ Proyecto para las asignaturas IV (Infraestructuras Virtuales) y DAI (Diseño de 
 [![Vagrant](https://www.dropbox.com/s/k9rxzzsghouo8cu/vagrant-logo.png?dl=1)](https://github.com/magvugr/InsertaLogo/blob/master/Vagrantfile)
 
 **Ansible**
-![Ansible](https://www.dropbox.com/s/iczkyl2xg35wr7o/ansible-logo.jpg?dl=1)
+[![Ansible](https://www.dropbox.com/s/iczkyl2xg35wr7o/ansible-logo.jpg?dl=1)](https://github.com/magvugr/InsertaLogo/blob/master/ansible/webservice.yml)
 
 ## Descripción
 
