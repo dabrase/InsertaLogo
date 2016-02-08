@@ -7,7 +7,7 @@ despliegue:
 	. ./variables.sh	
 
 	chmod a+x despliegue5.sh
-	./despliegue5.sh pass=$pas user=$us nomMaq=$maq
+	./despliegue5.sh pass=$PASSW user=$USERN nomMaq=$MAQSER
 
 installa:
 	sudo pip install -r requirements.txt

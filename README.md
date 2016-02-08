@@ -249,11 +249,13 @@ Para llevar a cabo nuestra app ***InsertaLogo*** hemos tenido que:
 
 - [x] Nuestro fichero [Ansible](https://github.com/magvugr/InsertaLogo/blob/master/ansible/webservice.yml), encargado de instalar las dependencias necesarias.
 
-- [x] A continuación generamos los certificados y subimos nuestro certificado ***.cer*** al servidor Azure.
+- [x] A continuación generamos nuestro certificado ***.cer*** y lo subimos al servidor Azure.
 
 - [x] Nuestro fichero [Fabric](https://github.com/magvugr/InsertaLogo/blob/master/fabfile.py) encargado de conectarse a la máquina por nosotros, además de automatizar las diferentes tareas que podemos indicar en el archivo ***Fabfile***.
 
-- [x] Una vez hayamos los realizados los pasos anteriores, ejecutamos en el terminal ***vagrant up --provider=azure***, que seguidamente comenzará con el despliegue de nuestra app en azure.
+- [x] Una vez hayamos los realizados los pasos anteriores, ejecutamos en el terminal ***make despliegue***, que seguidamente comenzará con el despliegue de nuestra app en azure.
+
+- [x] Por seguridad hemos creado una [plantilla de variables de entorno](https://github.com/magvugr/InsertaLogo/blob/master/PlantillaVariables.sh) donde se indicarán datos privados de forma segura. 
 
 Un ejemplo de uso:
  ![Fab](https://www.dropbox.com/s/8z4gyn78i69oeij/Ejecuci%C3%B3n%20Fab.png?dl=1)
