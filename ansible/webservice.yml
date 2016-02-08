@@ -13,9 +13,6 @@
   - name: Install git
     apt: name=git state=present
 
-  - name: Borrar si Actualiza
-    shell: rm -rf InsertaLogo
-
   - name: Clonar InsertaLogo
     git: repo=https://github.com/magvugr/InsertaLogo.git dest=InsertaLogo clone=yes force=yes
 
