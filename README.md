@@ -58,9 +58,17 @@ He realizado un archivo [make](https://github.com/magvugr/InsertaLogo/blob/maste
 
 El código de mi Makefile es el siguiente:
 
-#Miguel Angel Garcia Villegas
+		#Makefile
 
-#Makefile
+		despliegue:
+			chmod a+x variables.sh
+			. ./variables.sh
+
+			chmod a+x despliegue5.sh
+			./despliegue5.sh pass=$PASSW user=$USERN nomMaq=$MAQSER
+
+		installa:
+			sudo pip install -r requirements.txt
 
 		clean:
 			rm -rf *~* && find . -name '*.pyc' -exec rm {} \;
@@ -76,7 +84,7 @@ El código de mi Makefile es el siguiente:
 			sudo apt-get install -y liblcms1-dev
 			sudo apt-get install -y libwebp-dev
 			sudo apt-get install -y python-pip
-			sudo pip install --upgrade pip
+			sudo pip install --upgrade -y pip
 			sudo pip install -r requirements.txt
 
 		test:
@@ -88,7 +96,7 @@ El código de mi Makefile es el siguiente:
 			- pycco *.py
 
 		heroku:
-			wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh   
+			wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 			heroku login
 			heroku create
 			git add .
@@ -104,6 +112,8 @@ El código de mi Makefile es el siguiente:
 			sudo docker run -p 8000:8000 -t -i magvugr/insertalogo /bin/bash
 
 
+
+
 Algunas de las diferentes opciones del Makefile (que se irán añadiendo más):
 
 - Limpieza (make clean)
@@ -114,7 +124,7 @@ Algunas de las diferentes opciones del Makefile (que se irán añadiendo más):
 
 ## Test, Sistema de Pruebas.
 
-Hemos realizado varios Test para verificar el funcionamiento del proyecto. Para ejecutarlos lo hacemos llamando a ```make test```
+Hemos realizado varios Test para verificar el funcionamiento del proyecto. Para ejecutarlos lo hacemos llamando a ``make test``
 
 - [x] test_registros, éste test crea un registro.
 
@@ -255,7 +265,7 @@ Para llevar a cabo nuestra app ***InsertaLogo*** hemos tenido que:
 
 - [x] Una vez hayamos los realizados los pasos anteriores, ejecutamos en el terminal ***make despliegue***, que seguidamente comenzará con el despliegue de nuestra app en azure.
 
-- [x] Por seguridad hemos creado una [plantilla de variables de entorno](https://github.com/magvugr/InsertaLogo/blob/master/PlantillaVariables.sh) donde se indicarán datos privados de forma segura. 
+- [x] Por seguridad hemos creado una [plantilla de variables de entorno](https://github.com/magvugr/InsertaLogo/blob/master/PlantillaVariables.sh) donde se indicarán datos privados de forma segura.
 
 Un ejemplo de uso:
  ![Fab](https://www.dropbox.com/s/8z4gyn78i69oeij/Ejecuci%C3%B3n%20Fab.png?dl=1)
