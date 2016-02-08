@@ -263,9 +263,9 @@ Para llevar a cabo nuestra app ***InsertaLogo*** hemos tenido que:
 
 - [x] Nuestro fichero [Fabric](https://github.com/magvugr/InsertaLogo/blob/master/fabfile.py) encargado de conectarse a la máquina por nosotros, además de automatizar las diferentes tareas que podemos indicar en el archivo ***Fabfile***.
 
-- [x] Una vez hayamos los realizados los pasos anteriores, ejecutamos en el terminal ***make despliegue***, que seguidamente comenzará con el despliegue de nuestra app en azure.
+- [x] Por seguridad hemos creado una [plantilla de variables de entorno](https://github.com/magvugr/InsertaLogo/blob/master/PlantillaVariables.sh) donde se indicarán datos privados de forma segura. En dicho archivo le indicamos nuestros datos, y lo guardamos con el nombre ***variables.sh***
 
-- [x] Por seguridad hemos creado una [plantilla de variables de entorno](https://github.com/magvugr/InsertaLogo/blob/master/PlantillaVariables.sh) donde se indicarán datos privados de forma segura.
+- [x] Una vez hayamos los realizados los pasos anteriores, ejecutamos en el terminal ***make despliegue***, que seguidamente comenzará con el despliegue de nuestra app en azure.
 
 Aquí dejo un pantallazo de la app, funcionando. Aunque se puede consultar en el siguiente enlace ->  http://insertalogo.cloudapp.net/
 
