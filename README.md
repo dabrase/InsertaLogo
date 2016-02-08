@@ -267,9 +267,6 @@ Para llevar a cabo nuestra app ***InsertaLogo*** hemos tenido que:
 
 - [x] Por seguridad hemos creado una [plantilla de variables de entorno](https://github.com/magvugr/InsertaLogo/blob/master/PlantillaVariables.sh) donde se indicarán datos privados de forma segura.
 
-Un ejemplo de uso:
- ![Fab](https://www.dropbox.com/s/8z4gyn78i69oeij/Ejecuci%C3%B3n%20Fab.png?dl=1)
-
 Aquí dejo un pantallazo de la app, funcionando. Aunque se puede consultar en el siguiente enlace ->  http://insertalogo.cloudapp.net/
 
  ![InsertaLogoCLoudapp](https://www.dropbox.com/s/bwv08eanwoxd1se/InsertaLogoCloudapp.png?dl=1)
