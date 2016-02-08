@@ -6,3 +6,4 @@ EntVirtual
 *.pem
 .vagrant
 CertificadosInsertaLogo1
+variables.sh
