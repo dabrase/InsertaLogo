@@ -2,6 +2,16 @@
 
 #Makefile
 
+despliegue:
+	chmod a+x variables.sh
+	. ./variables.sh	
+
+	chmod a+x despliegue5.sh
+	./despliegue5.sh pass=$pas user=$us nomMaq=$maq
+
+installa:
+	sudo pip install -r requirements.txt
+
 clean:
 	rm -rf *~* && find . -name '*.pyc' -exec rm {} \;
 
@@ -17,9 +27,6 @@ install:
 	sudo apt-get install -y libwebp-dev
 	sudo apt-get install -y python-pip
 	sudo pip install --upgrade -y pip
-	sudo pip install -r requirements.txt
-
-installa:
 	sudo pip install -r requirements.txt
 
 test:
@@ -46,4 +53,3 @@ docker:
 	sudo docker pull magvugr/insertalogo
 	sudo docker run -p 8000:8000 -t -i magvugr/insertalogo /bin/bash
 
-azure:

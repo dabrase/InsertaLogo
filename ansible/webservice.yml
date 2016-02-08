@@ -1,7 +1,6 @@
 ---
 - hosts: default
-  user: ma
-  sudo: yes
+  user: "{{ lookup('env','USERNSSH') }}"
 
   tasks:
     #Instalacion requisitos

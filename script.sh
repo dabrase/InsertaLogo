@@ -1,16 +1,6 @@
 #! /bin/bash
 
-#Instalar
-make install
+#Despliegue
+make despliegue pas=$pass us= maq=
 
-#Realizar test
-make test
 
-#Heroku
-#make heroku
-
-#Docker
-make docker
-
-#Azure
-#make azure
